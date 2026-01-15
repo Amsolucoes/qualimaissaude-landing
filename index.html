@@ -1,0 +1,1011 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>QualiMais Saude | Corretora de Planos de Saúde</title>
+
+    <!-- SEO básico -->
+    <meta name="description"
+        content="A QualiMais Saude é uma corretora de planos de saúde. Cotação e atendimento rápido no WhatsApp. Trabalhamos com Hapvida, Bradesco, Select e Oeste Saúde." />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="QualiMais Saude" />
+    <link rel="canonical" href="https://www.qualymaissaude.com.br/" />
+
+    <!-- Open Graph -->
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="QualiMais Saude | Corretora de Planos de Saúde" />
+    <meta property="og:description"
+        content="Cotação e atendimento rápido no WhatsApp. Hapvida, Bradesco, Select e Oeste Saúde." />
+    <meta property="og:url" content="https://www.qualymaissaude.com.br/" />
+    <!-- Dica: troque por uma imagem sua (1200x630) -->
+    <meta property="og:image" content="https://www.qualymaissaude.com.br/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="QualiMais Saude | Corretora de Planos de Saúde" />
+    <meta name="twitter:description"
+        content="Cotação e atendimento rápido no WhatsApp. Hapvida, Bradesco, Select e Oeste Saúde." />
+    <meta name="twitter:image" content="https://www.qualymaissaude.com.br/og-image.jpg" />
+
+    <!-- Favicon (SVG inline) -->
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2302B3A9'/%3E%3Cstop offset='1' stop-color='%23007B6E'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Cpath d='M32 14c1.7 0 3 1.3 3 3v10h10c1.7 0 3 1.3 3 3s-1.3 3-3 3H35v10c0 1.7-1.3 3-3 3s-3-1.3-3-3V36H19c-1.7 0-3-1.3-3-3s1.3-3 3-3h10V17c0-1.7 1.3-3 3-3z' fill='white'/%3E%3C/svg%3E" />
+    <meta name="theme-color" content="#02B3A9" />
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons (mantendo como você pediu) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Identidade: azul (primário), laranja (destaque), vermelho (ênfase) */
+            --qm-blue: #0D6EFD;
+            /* azul Bootstrap */
+            --qm-blue-700: #0A58CA;
+
+            --qm-orange: #FD7E14;
+            /* laranja Bootstrap */
+            --qm-red: #DC3545;
+            /* vermelho Bootstrap */
+
+            --qm-ink: #0B1F1E;
+            --qm-muted: #5B6B6A;
+
+            /* Fundo mais branco */
+            --qm-bg: #FFFFFF;
+            --qm-soft: #F7F9FC;
+            /* cinza bem claro */
+            --qm-card: #FFFFFF;
+            --qm-border: rgba(13, 110, 253, .14);
+            /* borda com tom azul */
+        }
+
+        .btn-qm {
+            --bs-btn-bg: var(--qm-blue);
+            --bs-btn-border-color: var(--qm-blue);
+            --bs-btn-hover-bg: var(--qm-blue-700);
+            --bs-btn-hover-border-color: var(--qm-blue-700);
+            --bs-btn-color: #fff;
+            --bs-btn-hover-color: #fff;
+            border-radius: .9rem;
+            padding: .8rem 1rem;
+            box-shadow: 0 10px 18px rgba(13, 110, 253, .20);
+        }
+
+        .btn-qm-outline {
+            border-radius: .9rem;
+            padding: .8rem 1rem;
+            border: 1px solid rgba(13, 110, 253, .30);
+            color: var(--qm-blue-700);
+            background: rgba(13, 110, 253, .05);
+        }
+
+        .btn-qm-outline:hover {
+            background: rgba(253, 126, 20, .10);
+            /* hover com laranja */
+            border-color: rgba(253, 126, 20, .45);
+            color: #8a3c00;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--qm-ink);
+            background: var(--qm-bg);
+        }
+
+        .navbar {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, .85) !important;
+            border-bottom: 1px solid var(--qm-border);
+        }
+
+        .brand-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--qm-primary);
+            border-radius: 999px;
+            display: inline-block;
+            margin-right: .5rem;
+            box-shadow: 0 0 0 4px rgba(2, 179, 169, .15);
+        }
+
+        .hero {
+            padding-top: 5.5rem;
+            padding-bottom: 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: -20%;
+            background:
+                radial-gradient(circle at 18% 18%, rgba(13, 110, 253, .10) 0%, transparent 55%),
+                radial-gradient(circle at 82% 10%, rgba(253, 126, 20, .12) 0%, transparent 55%),
+                radial-gradient(circle at 70% 70%, rgba(220, 53, 69, .08) 0%, transparent 55%);
+            pointer-events: none;
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, .82);
+            border: 1px solid var(--qm-border);
+            box-shadow: 0 10px 30px rgba(11, 31, 30, .08);
+            border-radius: 1.25rem;
+        }
+
+        .pill {
+            border: 1px solid var(--qm-border);
+            background: rgba(255, 255, 255, .70);
+            border-radius: 999px;
+            padding: .45rem .75rem;
+            font-size: .9rem;
+            color: var(--qm-muted);
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            margin-right: .5rem;
+            margin-bottom: .5rem;
+        }
+
+        .section {
+            padding: 4.5rem 0;
+        }
+
+        .section-title {
+            letter-spacing: -.02em;
+        }
+
+        .qm-card {
+            background: var(--qm-card);
+            border: 1px solid var(--qm-border);
+            border-radius: 1.25rem;
+            box-shadow: 0 10px 28px rgba(11, 31, 30, .06);
+        }
+
+        .qm-danger {
+            border: 1px solid rgba(220, 53, 69, .30);
+            background: rgba(220, 53, 69, .06);
+        }
+
+        .logo-strip img {
+            max-height: 34px;
+            width: auto;
+            opacity: .92;
+            transition: all .2s ease;
+        }
+
+        .logo-strip img:hover {
+            opacity: 1;
+            transform: translateY(-1px);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            border-radius: 14px;
+            background: rgba(253, 126, 20, .10);
+            color: #a64500;
+            border: 1px solid rgba(253, 126, 20, .25);
+            flex: 0 0 auto;
+        }
+
+        .plan-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            padding: .35rem .65rem;
+            border-radius: 999px;
+            border: 1px solid var(--qm-border);
+            color: var(--qm-muted);
+            background: rgba(255, 255, 255, .7);
+            font-size: .85rem;
+        }
+
+        .wa-float {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            z-index: 1050;
+            width: 56px;
+            height: 56px;
+            border-radius: 999px;
+            background: #25D366;
+            color: #fff;
+            display: grid;
+            place-items: center;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, .20);
+            text-decoration: none;
+        }
+
+        .wa-float:hover {
+            color: #fff;
+            transform: translateY(-1px);
+        }
+
+        .small-muted {
+            color: var(--qm-muted);
+        }
+
+        .anchor-offset {
+            scroll-margin-top: 90px;
+        }
+
+        .price-old {
+            color: #6c757d;
+            text-decoration: line-through;
+        }
+
+        .price-new {
+            font-weight: 700;
+        }
+    </style>
+
+    <!-- JSON-LD (Organization/LocalBusiness) -->
+    <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"InsuranceAgency",
+    "name":"QualiMais Saude",
+    "description":"Corretora de planos de saúde. Atendimento e cotação pelo WhatsApp.",
+    "telephone":"+55 67 8215-9500",
+    "url":"https://www.qualymaissaude.com.br/",
+    "sameAs":[
+      "https://wa.me/556782159500"
+    ],
+    "areaServed":"BR",
+    "contactPoint":{
+      "@type":"ContactPoint",
+      "telephone":"+55 67 8215-9500",
+      "contactType":"sales",
+      "availableLanguage":["pt-BR"]
+    }
+  }
+  </script>
+</head>
+
+<body>
+    <!-- NAV -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-semibold d-flex align-items-center" href="#home">
+                <span class="brand-dot"></span>
+                QualiMais Saude
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navQm"
+                aria-controls="navQm" aria-expanded="false" aria-label="Abrir menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navQm">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-2">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#planos">Planos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#quem-somos">Quem somos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                </ul>
+
+                <div class="d-flex gap-2 ms-lg-3">
+                    <a class="btn btn-qm-outline d-none d-lg-inline-flex align-items-center" href="#contato">
+                        <i class="bi bi-envelope me-2"></i> Falar com corretor
+                    </a>
+                    <a class="btn btn-qm d-inline-flex align-items-center"
+                        href="https://wa.me/556782159500?text=Ol%C3%A1%21%20Quero%20fazer%20uma%20cota%C3%A7%C3%A3o%20de%20plano%20de%20sa%C3%BAde."
+                        target="_blank" rel="noopener">
+                        <i class="bi bi-whatsapp me-2"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header id="home" class="hero anchor-offset">
+        <div class="container position-relative">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-6">
+                    <div class="mb-3">
+                        <span class="pill"><i class="bi bi-shield-check"></i> Corretora especializada</span>
+                        <span class="pill"><i class="bi bi-people"></i> PF e PME</span>
+                        <span class="pill"><i class="bi bi-lightning-charge"></i> Atendimento rápido</span>
+                    </div>
+
+                    <h1 class="display-5 fw-bold section-title">
+                        Encontre o plano de saúde ideal com a <span style="color:var(--qm-primary-700)">QualiMais
+                            Saude</span>
+                    </h1>
+                    <p class="lead small-muted mt-3">
+                        Cotação clara, comparativo de cobertura e suporte do início ao fim.
+                        Trabalhamos com <strong>Hapvida</strong>, <strong>Bradesco</strong>, <strong>Select</strong> e
+                        <strong>Oeste Saúde</strong>.
+                    </p>
+
+                    <div class="d-flex flex-column flex-sm-row gap-2 mt-4">
+                        <a class="btn btn-qm" href="#planos">
+                            Ver planos <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                        <a class="btn btn-qm-outline"
+                            href="https://wa.me/556782159500?text=Ol%C3%A1%21%20Quero%20fazer%20uma%20cota%C3%A7%C3%A3o%20de%20plano%20de%20sa%C3%BAde."
+                            target="_blank" rel="noopener">
+                            <i class="bi bi-whatsapp me-2"></i> Cotar no WhatsApp
+                        </a>
+                    </div>
+
+                    <div class="mt-4 small-muted">
+                        <i class="bi bi-telephone me-2"></i> +55 67 8215-9500
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="hero-card p-4 p-md-5">
+                        <div class="d-flex align-items-start gap-3 mb-3">
+                            <div class="feature-icon"><i class="bi bi-clipboard2-check fs-4"></i></div>
+                            <div>
+                                <h2 class="h5 mb-1 fw-semibold">Como funciona a cotação?</h2>
+                                <p class="mb-0 small-muted">Em poucos passos você recebe opções com custo/benefício.</p>
+                            </div>
+                        </div>
+
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <div class="d-flex gap-3 align-items-start">
+                                    <div class="feature-icon"><i class="bi bi-1-circle fs-5"></i></div>
+                                    <div>
+                                        <div class="fw-semibold">Você informa o perfil</div>
+                                        <div class="small-muted">Idades, cidade/UF, tipo (PF/PME), preferência de rede.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="d-flex gap-3 align-items-start">
+                                    <div class="feature-icon"><i class="bi bi-2-circle fs-5"></i></div>
+                                    <div>
+                                        <div class="fw-semibold">Montamos as melhores opções</div>
+                                        <div class="small-muted">Comparativo de planos e carências quando aplicável.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="d-flex gap-3 align-items-start">
+                                    <div class="feature-icon"><i class="bi bi-3-circle fs-5"></i></div>
+                                    <div>
+                                        <div class="fw-semibold">Você escolhe e a gente acompanha</div>
+                                        <div class="small-muted">Suporte na contratação e pós-venda.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="my-4" />
+
+                        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+                            <span class="plan-badge"><i class="bi bi-star-fill" style="color:var(--qm-primary)"></i>
+                                Atendimento humanizado</span>
+                            <span class="plan-badge"><i class="bi bi-clock-history"></i> Resposta rápida</span>
+                            <span class="plan-badge"><i class="bi bi-geo-alt"></i> Brasil</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Logos -->
+            <div class="qm-card p-3 p-md-4 mt-5">
+                <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+                    <div>
+                        <div class="fw-semibold">Operadoras atendidas</div>
+                        <div class="small-muted">Trabalhamos com opções para diferentes perfis e necessidades.</div>
+                    </div>
+                    <div class="logo-strip d-flex flex-wrap align-items-center gap-4 justify-content-md-end">
+                        <img loading="lazy" alt="Hapvida"
+                            src="https://upload.wikimedia.org/wikipedia/commons/0/01/Hapvida_NDI_logo.png" />
+                        <img loading="lazy" alt="Bradesco"
+                            src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Banco_Bradesco_logo.svg" />
+                        <!-- Select (ícone do app - pode trocar por logo oficial quando tiver o arquivo) -->
+                        <img loading="lazy" alt="Select"
+                            src="https://play-lh.googleusercontent.com/pJnKOt3yfXfPnU1Vh1l4InhJJajeTQhc7MBwLtgUej9ApbZjQ7j1AVdrbnPKnXmbYuwvECQ4TDKHwNg9yI3JQw=w240-h480" />
+                        <img src="https://www.oestesaude.com.br/imgs/logo.png?v=0.1.7" alt="Oeste Saúde"
+                            loading="lazy" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- PLANOS -->
+    <section id="planos" class="section anchor-offset">
+        <div class="container">
+            <div class="row align-items-end g-3 mb-4">
+                <div class="col-lg-7">
+                    <h2 class="display-6 fw-bold section-title">Planos</h2>
+                    <p class="small-muted mb-0">
+                        Selecione a operadora para iniciar a cotação. Se quiser, fale direto no WhatsApp e a gente te
+                        orienta.
+                    </p>
+                </div>
+                <div class="col-lg-5 text-lg-end">
+                    <a class="btn btn-qm-outline"
+                        href="https://wa.me/556782159500?text=Ol%C3%A1%21%20Quero%20comparar%20planos%20(Hapvida%2FBradesco%2FSelect%2FOeste)%20e%20entender%20qual%20faz%20mais%20sentido%20para%20mim."
+                        target="_blank" rel="noopener">
+                        <i class="bi bi-whatsapp me-2"></i> Comparar no WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Hapvida -->
+                <div class="col-md-6 col-xl-3">
+                    <div class="qm-card p-4 h-100">
+                        <img loading="lazy" class="mb-3" alt="Hapvida"
+                            src="https://upload.wikimedia.org/wikipedia/commons/0/01/Hapvida_NDI_logo.png"
+                            style="max-height:30px;width:auto" />
+                        <div class="small-muted mb-3">Opções com bom custo-benefício e ampla presença.</div>
+                        <ul class="list-unstyled small mb-4">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill me-2"
+                                    style="color:var(--qm-primary)"></i> Planos PF/PME</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill me-2"
+                                    style="color:var(--qm-primary)"></i> Rede e coberturas conforme plano</li>
+                            <li><i class="bi bi-check-circle-fill me-2" style="color:var(--qm-primary)"></i> Suporte na
+                                contratação</li>
+                        </ul>
+                        <a class="btn btn-qm w-100"
+                            href="https://wa.me/556782159500?text=Ol%C3%A1%21%20Quero%20cotar%20Hapvida."
+                            target="_blank" rel="noopener">
+                            Cotar Hapvida <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                        <button type="button" class="btn btn-outline-primary w-100 rounded-pill mt-2"
+                            data-bs-toggle="modal" data-bs-target="#hapvidaPricesModal">
+                            <i class="bi bi-table me-2"></i> Ver tabela de preços
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Bradesco -->
+                <div class="col-md-6 col-xl-3">
+                    <div class="qm-card p-4 h-100">
+                        <img loading="lazy" class="mb-3" alt="Bradesco"
+                            src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Banco_Bradesco_logo.svg"
+                            style="max-height:26px;width:auto" />
+                        <div class="small-muted mb-3">Soluções para quem busca rede diferenciada e tradição.</div>
+                        <ul class="list-unstyled small mb-4">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill me-2"
+                                    style="color:var(--qm-primary)"></i> Opções corporativas</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill me-2"
+                                    style="color:var(--qm-primary)"></i> Coberturas conforme produto</li>
+                            <li><i class="bi bi-check-circle-fill me-2" style="color:var(--qm-primary)"></i> Atendimento
+                                consultivo</li>
+                        </ul>
+                        <a class="btn btn-qm w-100"
+                            href="https://wa.me/556782159500?text=Ol%C3%A1%21%20Quero%20cotar%20Bradesco%20Sa%C3%BAde."
+                            target="_blank" rel="noopener">
+                            Cotar Bradesco <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Select -->
+                <div class="col-md-6 col-xl-3">
+                    <div class="qm-card p-4 h-100">
+                        <img loading="lazy" class="mb-3" alt="Select"
+                            src="https://play-lh.googleusercontent.com/pJnKOt3yfXfPnU1Vh1l4InhJJajeTQhc7MBwLtgUej9ApbZjQ7j1AVdrbnPKnXmbYuwvECQ4TDKHwNg9yI3JQw=w240-h480"
+                            style="max-height:34px;width:auto;border-radius:10px" />
+                        <div class="small-muted mb-3">Planos com alternativas para diferentes perfis.</div>
+                        <ul class="list-unstyled small mb-4">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill me-2"
+                                    style="color:var(--qm-primary)"></i> Opções regionais e modalidades</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill me-2"
+                                    style="color:var(--qm-primary)"></i> Rede credenciada conforme plano</li>
+                            <li><i class="bi bi-check-circle-fill me-2" style="color:var(--qm-primary)"></i> Cotação
+                                rápida</li>
+                        </ul>
+                        <a class="btn btn-qm w-100"
+                            href="https://wa.me/556782159500?text=Ol%C3%A1%21%20Quero%20cotar%20Select." target="_blank"
+                            rel="noopener">
+                            Cotar Select <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Oeste Saúde -->
+                <div class="col-md-6 col-xl-3">
+                    <div class="qm-card p-4 h-100">
+                        <img loading="lazy" class="mb-3" alt="Oeste Saúde"
+                            src="https://www.oestesaude.com.br/imgs/footer2.png?v=0.1.7"
+                            style="max-height:28px;width:auto" />
+                        <div class="small-muted mb-3">Planos com foco regional e opções empresariais.</div>
+                        <ul class="list-unstyled small mb-4">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill me-2"
+                                    style="color:var(--qm-primary)"></i> Individual/Familiar/PME</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill me-2"
+                                    style="color:var(--qm-primary)"></i> Suporte em dúvidas e contratação</li>
+                            <li><i class="bi bi-check-circle-fill me-2" style="color:var(--qm-primary)"></i> Atendimento
+                                ágil</li>
+                        </ul>
+                        <a class="btn btn-qm w-100"
+                            href="https://wa.me/556782159500?text=Ol%C3%A1%21%20Quero%20cotar%20Oeste%20Sa%C3%BAde."
+                            target="_blank" rel="noopener">
+                            Cotar Oeste Saúde <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert mt-4 qm-card p-4 d-flex gap-3 align-items-start">
+                <div class="feature-icon" style="background:rgba(2,179,169,.08)">
+                    <i class="bi bi-info-circle fs-4"></i>
+                </div>
+                <div>
+                    <div class="fw-semibold">Importante</div>
+                    <div class="small-muted mb-0">
+                        Valores, redes e coberturas variam por cidade/UF, faixa etária e modalidade (PF/PME).
+                        Chame no WhatsApp e te envio uma cotação com comparativo.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUEM SOMOS -->
+    <section id="quem-somos" class="section anchor-offset"
+        style="background: linear-gradient(180deg, #fff 0%, var(--qm-bg) 100%);">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="display-6 fw-bold section-title">Quem somos</h2>
+                    <p class="small-muted">
+                        A <strong>QualiMais Saude</strong> é uma corretora de planos de saúde focada em atendimento
+                        consultivo:
+                        entender seu cenário e apresentar opções que façam sentido — sem complicação.
+                    </p>
+
+                    <div class="qm-card p-4">
+                        <div class="d-flex gap-3 mb-3">
+                            <div class="feature-icon"><i class="bi bi-heart-pulse fs-4"></i></div>
+                            <div>
+                                <div class="fw-semibold">Nosso foco</div>
+                                <div class="small-muted">Ajudar você a escolher um plano com equilíbrio entre preço,
+                                    rede e cobertura.</div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-3 mb-3">
+                            <div class="feature-icon"><i class="bi bi-headset fs-4"></i></div>
+                            <div>
+                                <div class="fw-semibold">Suporte</div>
+                                <div class="small-muted">Acompanhamento na contratação e suporte no pós-venda.</div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-3">
+                            <div class="feature-icon"><i class="bi bi-shield-check fs-4"></i></div>
+                            <div>
+                                <div class="fw-semibold">Transparência</div>
+                                <div class="small-muted">Comparativos objetivos e linguagem simples.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="qm-card p-4 p-md-5">
+                        <h3 class="h5 fw-semibold mb-3">Por que cotar com a gente?</h3>
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="qm-card p-3 h-100">
+                                    <div class="d-flex gap-3">
+                                        <div class="feature-icon"><i class="bi bi-lightning-charge fs-4"></i></div>
+                                        <div>
+                                            <div class="fw-semibold">Agilidade</div>
+                                            <div class="small-muted">Cotação rápida e objetiva no WhatsApp.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="qm-card p-3 h-100">
+                                    <div class="d-flex gap-3">
+                                        <div class="feature-icon"><i class="bi bi-graph-up-arrow fs-4"></i></div>
+                                        <div>
+                                            <div class="fw-semibold">Comparativo</div>
+                                            <div class="small-muted">Prós e contras de cada opção.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="qm-card p-3 h-100">
+                                    <div class="d-flex gap-3">
+                                        <div class="feature-icon"><i class="bi bi-person-check fs-4"></i></div>
+                                        <div>
+                                            <div class="fw-semibold">Atendimento humano</div>
+                                            <div class="small-muted">Sem robô, sem enrolação.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="qm-card p-3 h-100">
+                                    <div class="d-flex gap-3">
+                                        <div class="feature-icon"><i class="bi bi-file-earmark-text fs-4"></i></div>
+                                        <div>
+                                            <div class="fw-semibold">Apoio na documentação</div>
+                                            <div class="small-muted">A gente te orienta no que precisa.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 d-flex flex-column flex-sm-row gap-2">
+                            <a class="btn btn-qm w-100"
+                                href="https://wa.me/556782159500?text=Ol%C3%A1%21%20Quero%20uma%20cota%C3%A7%C3%A3o%20e%20tire%20minhas%20d%C3%BAvidas."
+                                target="_blank" rel="noopener">
+                                <i class="bi bi-whatsapp me-2"></i> Falar no WhatsApp
+                            </a>
+                            <a class="btn btn-qm-outline w-100" href="#contato">
+                                <i class="bi bi-envelope me-2"></i> Enviar mensagem
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="section anchor-offset">
+        <div class="container">
+            <div class="row align-items-end g-3 mb-4">
+                <div class="col-lg-7">
+                    <h2 class="display-6 fw-bold section-title">Contato</h2>
+                    <p class="small-muted mb-0">
+                        Quer cotar agora? Clique no WhatsApp. Se preferir, deixe seus dados e a gente retorna.
+                    </p>
+                </div>
+                <div class="col-lg-5 text-lg-end">
+                    <a class="btn btn-qm"
+                        href="https://wa.me/556782159500?text=Ol%C3%A1%21%20Quero%20cotar%20um%20plano%20de%20sa%C3%BAde."
+                        target="_blank" rel="noopener">
+                        <i class="bi bi-whatsapp me-2"></i> Chamar no WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-7">
+                    <div class="qm-card p-4 p-md-5">
+                        <h3 class="h5 fw-semibold mb-3">Envie uma mensagem</h3>
+
+                        <!-- Formulário (front-end). Troque para integração real (API, Formspree, etc.) -->
+                        <form id="contactForm" novalidate>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Nome</label>
+                                    <input class="form-control form-control-lg" name="name" required
+                                        placeholder="Seu nome" />
+                                    <div class="invalid-feedback">Informe seu nome.</div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">WhatsApp</label>
+                                    <input class="form-control form-control-lg" name="phone" required
+                                        placeholder="(67) 9xxxx-xxxx" />
+                                    <div class="invalid-feedback">Informe um contato.</div>
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label">E-mail (opcional)</label>
+                                    <input class="form-control form-control-lg" name="email" type="email"
+                                        placeholder="seuemail@exemplo.com" />
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label">Mensagem</label>
+                                    <textarea class="form-control form-control-lg" name="message" rows="4" required
+                                        placeholder="Conte seu perfil: cidade/UF, idades, PF ou PME, preferências..."></textarea>
+                                    <div class="invalid-feedback">Escreva sua mensagem.</div>
+                                </div>
+
+                                <div class="col-12 d-grid d-sm-flex gap-2">
+                                    <button class="btn btn-qm" type="submit">
+                                        <i class="bi bi-send me-2"></i> Enviar
+                                    </button>
+                                    <button class="btn btn-qm-outline" type="button" id="sendToWhatsApp">
+                                        <i class="bi bi-whatsapp me-2"></i> Enviar pelo WhatsApp
+                                    </button>
+                                </div>
+
+                                <div class="col-12">
+                                    <div id="formAlert" class="alert alert-success d-none mb-0" role="alert">
+                                        Mensagem pronta! Se preferir, clique em “Enviar pelo WhatsApp”.
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="qm-card p-4 p-md-5 h-100">
+                        <h3 class="h5 fw-semibold mb-3">Canais</h3>
+
+                        <div class="d-flex gap-3 align-items-start mb-3">
+                            <div class="feature-icon"><i class="bi bi-whatsapp fs-4"></i></div>
+                            <div>
+                                <div class="fw-semibold">WhatsApp</div>
+                                <div class="small-muted mb-2">Resposta rápida para cotações e dúvidas.</div>
+                                <a class="btn btn-qm w-100"
+                                    href="https://wa.me/556782159500?text=Ol%C3%A1%21%20Quero%20cotar%20um%20plano%20de%20sa%C3%BAde."
+                                    target="_blank" rel="noopener">
+                                    Chamar agora <i class="bi bi-arrow-right ms-2"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <hr class="my-4" />
+
+                        <div class="d-flex gap-3 align-items-start mb-3">
+                            <div class="feature-icon"><i class="bi bi-telephone fs-4"></i></div>
+                            <div>
+                                <div class="fw-semibold">Telefone</div>
+                                <div class="small-muted">+55 67 8215-9500</div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-3 align-items-start">
+                            <div class="feature-icon"><i class="bi bi-geo-alt fs-4"></i></div>
+                            <div>
+                                <div class="fw-semibold">Atendimento</div>
+                                <div class="small-muted">Online (Brasil)</div>
+                            </div>
+                        </div>
+
+                        <hr class="my-4" />
+                        <div class="small-muted">
+                            <i class="bi bi-lock me-2"></i> Seus dados serão usados somente para contato e cotação.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center small-muted mt-4">
+                © <span id="year"></span> QualiMais Saude — Todos os direitos reservados.
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp floating button -->
+    <a class="wa-float"
+        href="https://wa.me/556782159500?text=Ol%C3%A1%21%20Quero%20cotar%20um%20plano%20de%20sa%C3%BAde."
+        target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+        <i class="bi bi-whatsapp fs-3"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Ano no rodapé
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        // Form helper
+        const form = document.getElementById("contactForm");
+        const alertBox = document.getElementById("formAlert");
+        const waBtn = document.getElementById("sendToWhatsApp");
+
+        function buildWhatsAppText() {
+            const fd = new FormData(form);
+            const name = (fd.get("name") || "").toString().trim();
+            const phone = (fd.get("phone") || "").toString().trim();
+            const email = (fd.get("email") || "").toString().trim();
+            const message = (fd.get("message") || "").toString().trim();
+
+            const lines = [
+                "Olá! Quero uma cotação de plano de saúde.",
+                "",
+                `Nome: ${name}`,
+                `Meu WhatsApp: ${phone}`,
+                email ? `E-mail: ${email}` : null,
+                "",
+                "Mensagem:",
+                message
+            ].filter(Boolean);
+
+            return encodeURIComponent(lines.join("\n"));
+        }
+
+        function openWhatsApp() {
+            const text = buildWhatsAppText();
+            const url = `https://wa.me/556782159500?text=${text}`;
+            window.open(url, "_blank", "noopener");
+        }
+
+        // Validação simples
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            alertBox.classList.add("d-none");
+
+            const name = form.querySelector("[name='name']");
+            const phone = form.querySelector("[name='phone']");
+            const message = form.querySelector("[name='message']");
+
+            let ok = true;
+            [name, phone, message].forEach(el => {
+                if (!el.value.trim()) {
+                    el.classList.add("is-invalid");
+                    ok = false;
+                } else {
+                    el.classList.remove("is-invalid");
+                }
+            });
+
+            if (!ok) return;
+
+            // Aqui você integraria com backend/email. Por enquanto só mostra alerta e sugere WhatsApp
+            alertBox.classList.remove("d-none");
+        });
+
+        waBtn.addEventListener("click", () => {
+            // se tiver inválido, tenta validar antes
+            form.dispatchEvent(new Event("submit", { cancelable: true }));
+            const invalid = form.querySelector(".is-invalid");
+            if (!invalid) openWhatsApp();
+        });
+
+        // Fecha menu mobile ao clicar em link
+        document.querySelectorAll(".navbar .nav-link").forEach(link => {
+            link.addEventListener("click", () => {
+                const nav = document.getElementById("navQm");
+                if (nav.classList.contains("show")) {
+                    const bsCollapse = bootstrap.Collapse.getOrCreateInstance(nav);
+                    bsCollapse.hide();
+                }
+            });
+        });
+
+        // Active link conforme rolagem
+        const sections = ["home", "planos", "quem-somos", "contato"].map(id => document.getElementById(id));
+        const navLinks = Array.from(document.querySelectorAll(".navbar .nav-link"));
+
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(a => a.classList.remove("active"));
+                    const active = navLinks.find(a => a.getAttribute("href") === `#${entry.target.id}`);
+                    if (active) active.classList.add("active");
+                }
+            });
+        }, { rootMargin: "-40% 0px -55% 0px", threshold: 0.01 });
+
+        sections.forEach(s => s && obs.observe(s));
+    </script>
+
+    <div class="modal fade" id="hapvidaPricesModal" tabindex="-1" aria-labelledby="hapvidaPricesModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content" style="border-radius: 18px;">
+                <div class="modal-header">
+                    <div>
+                        <h5 class="modal-title fw-bold" id="hapvidaPricesModalLabel">
+                            Tabela de preços — Hapvida Campo Grande
+                        </h5>
+                        <div class="small text-muted">
+                            Plano de saúde com plano odontológico • <span class="badge text-bg-warning">15% nas 3
+                                primeiras mensalidades*</span>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th scope="col">Faixa etária</th>
+                                    <th scope="col" class="text-end">Sem desconto</th>
+                                    <th scope="col" class="text-end">
+                                        Com desconto
+                                        <span class="badge text-bg-danger ms-2">Promo</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>0 a 18</td>
+                                    <td class="text-end">R$ 258,87</td>
+                                    <td class="text-end fw-semibold">R$ 220,04</td>
+                                </tr>
+                                <tr>
+                                    <td>19 a 23</td>
+                                    <td class="text-end">R$ 268,40</td>
+                                    <td class="text-end fw-semibold">R$ 228,14</td>
+                                </tr>
+                                <tr>
+                                    <td>24 a 28</td>
+                                    <td class="text-end">R$ 268,40</td>
+                                    <td class="text-end fw-semibold">R$ 228,14</td>
+                                </tr>
+                                <tr>
+                                    <td>29 a 33</td>
+                                    <td class="text-end">R$ 305,54</td>
+                                    <td class="text-end fw-semibold">R$ 259,71</td>
+                                </tr>
+                                <tr>
+                                    <td>34 a 38</td>
+                                    <td class="text-end">R$ 348,26</td>
+                                    <td class="text-end fw-semibold">R$ 296,02</td>
+                                </tr>
+                                <tr>
+                                    <td>39 a 43</td>
+                                    <td class="text-end">R$ 401,19</td>
+                                    <td class="text-end fw-semibold">R$ 341,01</td>
+                                </tr>
+                                <tr>
+                                    <td>44 a 48</td>
+                                    <td class="text-end">R$ 606,62</td>
+                                    <td class="text-end fw-semibold">R$ 515,63</td>
+                                </tr>
+                                <tr>
+                                    <td>49 a 53</td>
+                                    <td class="text-end">R$ 917,13</td>
+                                    <td class="text-end fw-semibold">R$ 779,56</td>
+                                </tr>
+                                <tr>
+                                    <td>54 a 58</td>
+                                    <td class="text-end">R$ 1.028,91</td>
+                                    <td class="text-end fw-semibold">R$ 874,57</td>
+                                </tr>
+                                <tr>
+                                    <td>+ de 59</td>
+                                    <td class="text-end">R$ 1.448,29</td>
+                                    <td class="text-end fw-semibold">R$ 1.231,05</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="small text-muted mt-3">
+                        *Condições promocionais podem variar por elegibilidade, região e regras da operadora. Valores
+                        sujeitos a alteração.
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <a class="btn btn-success rounded-pill"
+                        href="https://wa.me/556782159500?text=Ol%C3%A1!%20Quero%20cotar%20Hapvida%20(Campo%20Grande).%20Pode%20me%20ajudar%3F"
+                        target="_blank" rel="noopener">
+                        <i class="bi bi-whatsapp me-2"></i> Pedir cotação no WhatsApp
+                    </a>
+                    <button type="button" class="btn btn-outline-secondary rounded-pill"
+                        data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
