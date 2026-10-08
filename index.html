@@ -131,6 +131,9 @@
         .cta-band::after { content: ""; position: absolute; right: -80px; top: -80px; width: 280px; height: 280px; border-radius: 50%; background: rgba(253, 126, 20, .22); filter: blur(30px); }
         .cta-band .btn-light { font-weight: 700; border-radius: .9rem; padding: .8rem 1.4rem; color: var(--qm-blue-700); }
 
+        .hap-banner { background: linear-gradient(120deg, #052c65 0%, #0A58CA 55%, #0D6EFD 100%); color: #fff; border-radius: 1.5rem; position: relative; overflow: hidden; }
+        .hap-banner::before { content: ""; position: absolute; left: -60px; bottom: -90px; width: 300px; height: 300px; border-radius: 50%; background: rgba(253, 126, 20, .25); filter: blur(30px); }
+
         .site-footer { background: #0B1F1E; color: rgba(255, 255, 255, .72); padding: 3rem 0 2rem; }
         .site-footer a { color: rgba(255, 255, 255, .85); text-decoration: none; }
         .site-footer a:hover { color: #fff; text-decoration: underline; }
@@ -473,6 +476,31 @@
         </div>
     </header>
 
+    <!-- BANNER HAPVIDA -->
+    <section class="pt-2 pb-4">
+        <div class="container">
+            <div class="hap-banner p-4 p-md-5">
+                <div class="row align-items-center g-4 position-relative" style="z-index:1">
+                    <div class="col-lg-8">
+                        <span class="badge text-bg-warning mb-3">Condição especial</span>
+                        <h2 class="fw-bold mb-2">Hapvida em Campo Grande com <span class="text-warning">15% de desconto</span> nas 3 primeiras mensalidades*</h2>
+                        <p class="mb-0 opacity-75">Plano de saúde com plano odontológico. Veja a tabela de preços por faixa etária e peça sua cotação.</p>
+                    </div>
+                    <div class="col-lg-4 d-grid gap-2">
+                        <button type="button" class="btn btn-light fw-bold py-3" data-bs-toggle="modal" data-bs-target="#hapvidaPricesModal" style="border-radius:.9rem">
+                            <i class="bi bi-table me-2"></i> Ver tabela de preços
+                        </button>
+                        <a class="btn btn-outline-light fw-semibold py-3" style="border-radius:.9rem" target="_blank" rel="noopener"
+                            href="https://wa.me/556782159500?text=Ol%C3%A1!%20Quero%20cotar%20Hapvida%20(Campo%20Grande).%20Pode%20me%20ajudar%3F">
+                            <i class="bi bi-whatsapp me-2"></i> Cotar Hapvida
+                        </a>
+                    </div>
+                </div>
+                <div class="small opacity-50 mt-3 position-relative" style="z-index:1">*Condições sujeitas a elegibilidade, região e regras da operadora.</div>
+            </div>
+        </div>
+    </section>
+
     <!-- PLANOS -->
     <section id="planos" class="section anchor-offset">
         <div class="container">
@@ -787,7 +815,7 @@
                     <span class="eyebrow">Fale conosco</span>
                     <h2 class="display-6 fw-bold section-title">Contato</h2>
                     <p class="small-muted mb-0">
-                        Quer cotar agora? Clique no WhatsApp ou preencha o formulário: montamos sua mensagem e abrimos a conversa.
+                        Quer cotar agora? Clique no WhatsApp ou deixe seus dados e a gente retorna.
                     </p>
                 </div>
                 <div class="col-lg-5 text-lg-end">
@@ -804,7 +832,7 @@
                     <div class="qm-card p-4 p-md-5">
                         <h3 class="h5 fw-semibold mb-3">Envie uma mensagem</h3>
 
-                        <!-- Formulário: monta a mensagem e abre o WhatsApp -->
+                        <!-- Formulário: envia por e-mail via FormSubmit; WhatsApp como alternativa -->
                         <form id="contactForm" novalidate>
                             <div class="row g-3">
                                 <div class="col-md-6">
@@ -835,14 +863,19 @@
                                 </div>
 
                                 <div class="col-12 d-grid d-sm-flex gap-2">
+                                    <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
                                     <button class="btn btn-qm" type="submit">
-                                        <i class="bi bi-whatsapp me-2"></i> Enviar pelo WhatsApp
+                                        <i class="bi bi-send me-2"></i> Enviar mensagem
                                     </button>
+                                    <a class="btn btn-qm-outline" target="_blank" rel="noopener"
+                                        href="https://wa.me/556782159500?text=Ol%C3%A1%21%20Quero%20cotar%20um%20plano%20de%20sa%C3%BAde.">
+                                        <i class="bi bi-whatsapp me-2"></i> Prefiro o WhatsApp
+                                    </a>
                                 </div>
 
                                 <div class="col-12">
                                     <div id="formAlert" class="alert alert-success d-none mb-0" role="alert">
-                                        Abrimos o WhatsApp com sua mensagem pronta. É só confirmar o envio por lá.
+                                        Enviando...
                                     </div>
                                 </div>
                             </div>
@@ -945,6 +978,9 @@
         // Ano no rodapé
         document.getElementById("year").textContent = new Date().getFullYear();
 
+        // Envio do formulário por e-mail (FormSubmit) para a corretora
+        const FORM_ENDPOINT = "https://formsubmit.co/ajax/biancaborgescarneiro@gmail.com";
+
         // Form helper
         const form = document.getElementById("contactForm");
         const alertBox = document.getElementById("formAlert");
@@ -997,8 +1033,41 @@
 
             if (!ok) return;
 
-            alertBox.classList.remove("d-none");
-            openWhatsApp();
+            const btn = form.querySelector("button[type='submit']");
+            const original = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Enviando...';
+
+            const fd = new FormData(form);
+            const payload = {
+                _subject: "Novo contato pelo site QualiMais Saúde",
+                _template: "table",
+                _captcha: "false",
+                Nome: fd.get("name"),
+                WhatsApp: fd.get("phone"),
+                "E-mail": fd.get("email") || "(não informado)",
+                Mensagem: fd.get("message"),
+                _honey: fd.get("_honey") || ""
+            };
+
+            fetch(FORM_ENDPOINT, {
+                method: "POST",
+                headers: { "Content-Type": "application/json", "Accept": "application/json" },
+                body: JSON.stringify(payload)
+            })
+                .then(r => r.json().then(d => ({ ok: r.ok && String(d.success) !== "false", d })))
+                .then(({ ok }) => {
+                    if (!ok) throw new Error("falha no envio");
+                    alertBox.className = "alert alert-success mb-0";
+                    alertBox.textContent = "Mensagem enviada! Em breve um corretor entrará em contato pelo WhatsApp informado.";
+                    form.reset();
+                })
+                .catch(() => {
+                    alertBox.className = "alert alert-warning mb-0";
+                    alertBox.innerHTML = "Não foi possível enviar agora. Tente novamente ou <a href='#' id='waFallback' class='alert-link'>envie pelo WhatsApp</a>.";
+                    document.getElementById("waFallback").addEventListener("click", (ev) => { ev.preventDefault(); openWhatsApp(); });
+                })
+                .finally(() => { btn.disabled = false; btn.innerHTML = original; });
         });
 
         // Fecha menu mobile ao clicar em link
