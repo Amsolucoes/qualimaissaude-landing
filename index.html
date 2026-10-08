@@ -134,23 +134,25 @@
         .slider-wrap { padding-top: 5.5rem; }
         .slide { position: relative; overflow: hidden; border-radius: 1.5rem; color: #fff; min-height: 420px; display: flex; align-items: center;
             background-size: cover; background-position: center; }
-        /* Para usar fotos: salve assets/banners/slide-1.jpg, slide-2.jpg e slide-3.jpg; sem elas aparece só o degradê */
-        .slide-1 { background-image: linear-gradient(110deg, rgba(5,44,101,.94) 30%, rgba(13,110,253,.55)), url("assets/banners/slide-1.jpg"), linear-gradient(120deg, #052c65, #0D6EFD); }
-        .slide-2 { background-image: linear-gradient(110deg, rgba(10,88,202,.94) 30%, rgba(61,139,253,.55)), url("assets/banners/slide-2.jpg"), linear-gradient(120deg, #0A58CA, #3d8bfd); }
-        .slide-3 { background-image: linear-gradient(110deg, rgba(7,30,70,.94) 30%, rgba(253,126,20,.55)), url("assets/banners/slide-3.jpg"), linear-gradient(120deg, #071e46, #fd7e14); }
-        .slide-body { position: relative; z-index: 2; padding: 3rem 4.5rem 4rem 3.5rem; max-width: 720px; }
+        .slide-1 { background-image: linear-gradient(120deg, #052c65, #0D6EFD); }
+        .slide-2 { background-image: linear-gradient(120deg, #0A58CA, #3d8bfd); }
+        .slide-3 { background-image: linear-gradient(120deg, #071e46, #0D6EFD 70%, #fd7e14); }
+        .slide-photo { position: absolute; top: 0; right: 0; bottom: 0; width: 44%; height: 100%; object-fit: cover; z-index: 1;
+            -webkit-mask-image: linear-gradient(to right, transparent 0, #000 40%); mask-image: linear-gradient(to right, transparent 0, #000 40%); }
+        .slide-body { position: relative; z-index: 2; padding: 3rem 4.5rem 4rem 3.5rem; max-width: 60%; }
         .slide-body h2 { font-size: clamp(1.6rem, 3.2vw, 2.4rem); letter-spacing: -.03em; line-height: 1.15; }
         .slide-art { position: absolute; right: 4rem; top: 50%; transform: translateY(-50%); font-size: 13rem; opacity: .14; z-index: 1; }
         .slide-stat { background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.25); border-radius: 1rem; padding: .8rem; text-align: center; backdrop-filter: blur(4px); height: 100%; }
-        .slide-stat b { display: block; font-size: 1.6rem; letter-spacing: -.03em; }
+        .slide-stat b { display: block; font-size: 1.6rem; letter-spacing: -.03em; white-space: nowrap; }
+        @media (max-width: 575px) { .slide-stat b { font-size: 1.25rem; } .slide-stat { padding: .6rem .35rem; } }
         .slide-stat span { font-size: .75rem; opacity: .85; line-height: 1.2; display: block; }
         .chip { background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.3); border-radius: 999px; padding: .4rem .8rem; font-size: .9rem; }
         #heroCarousel .carousel-control-prev, #heroCarousel .carousel-control-next { width: 4rem; }
         #heroCarousel .carousel-indicators { margin-bottom: 1rem; }
         @media (max-width: 767px) {
-            .slide-body { padding: 2rem 1.25rem 3.5rem; }
-            .slide-art { font-size: 8rem; right: .5rem; top: 1.5rem; transform: none; }
-            .slide { min-height: 0; }
+            .slide { min-height: 0; flex-direction: column; align-items: stretch; }
+            .slide-photo { position: relative; width: 100%; height: 190px; -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent); mask-image: linear-gradient(to bottom, #000 55%, transparent); }
+            .slide-body { max-width: 100%; padding: 0 1.25rem 3.5rem; margin-top: -1rem; }
             #heroCarousel .carousel-control-prev, #heroCarousel .carousel-control-next { display: none; }
         }
 
@@ -397,7 +399,7 @@
                                 </div>
                                 <div class="small opacity-50 mt-3">*Sujeito a elegibilidade, região e regras da operadora.</div>
                             </div>
-                            <i class="bi bi-heart-pulse slide-art" aria-hidden="true"></i>
+                            <img class="slide-photo" src="assets/banners/slide-1.jpg" alt="Pai abraçando o filho, sorrindo" width="531" height="614" />
                         </div>
                     </div>
                     <!-- Slide 2 -->
@@ -406,16 +408,16 @@
                             <div class="slide-body">
                                 <span class="badge text-bg-light text-primary mb-3">Rede Hapvida</span>
                                 <h2 class="fw-bold">Uma das maiores redes próprias do Brasil</h2>
-                                <p class="opacity-75 mb-3">Hospitais, clínicas e unidades de diagnóstico da própria operadora, além da rede credenciada. Na cotação, mostramos a rede disponível em <strong>Campo Grande/MS</strong> para o plano escolhido.</p>
+                                <p class="opacity-75 mb-3">Hospitais, clínicas e unidades de diagnóstico da própria operadora, além da rede credenciada. Em <strong>Campo Grande/MS</strong> há clínica própria e unidades de diagnóstico Hapvida.</p>
                                 <div class="row g-2 mb-3" style="max-width:520px">
                                     <div class="col-4"><div class="slide-stat"><b>86</b><span>hospitais próprios</span></div></div>
                                     <div class="col-4"><div class="slide-stat"><b>365</b><span>clínicas e centros médicos</span></div></div>
-                                    <div class="col-4"><div class="slide-stat"><b>8,6 mi</b><span>de beneficiários</span></div></div>
+                                    <div class="col-4"><div class="slide-stat"><b>15,8 mi</b><span>beneficiários ativos</span></div></div>
                                 </div>
-                                <div class="small opacity-50 mb-3">Números nacionais divulgados pela Hapvida (2026). A rede varia por cidade e por plano.</div>
-                                <a class="btn btn-light fw-bold" style="border-radius:.9rem;padding:.8rem 1.2rem" target="_blank" rel="noopener" href="https://wa.me/556782159500?text=Ol%C3%A1!%20Quero%20saber%20a%20rede%20Hapvida%20em%20Campo%20Grande."><i class="bi bi-whatsapp me-2"></i> Ver rede em Campo Grande</a>
+                                <div class="small opacity-50 mb-3">Números nacionais divulgados no site da Hapvida. A rede varia por cidade e por plano.</div>
+                                <a class="btn btn-light fw-bold" style="border-radius:.9rem;padding:.8rem 1.2rem" href="#rede-campo-grande" onclick="document.getElementById('rede-campo-grande').scrollIntoView();return false;"><i class="bi bi-geo-alt me-2"></i> Ver rede em Campo Grande</a>
                             </div>
-                            <i class="bi bi-hospital slide-art" aria-hidden="true"></i>
+                            <img class="slide-photo" src="assets/banners/slide-2.jpg" alt="Médica atendendo paciente em consulta" width="531" height="352" loading="lazy" />
                         </div>
                     </div>
                     <!-- Slide 3 -->
@@ -433,7 +435,7 @@
                                 </div>
                                 <a class="btn btn-light fw-bold" style="border-radius:.9rem;padding:.8rem 1.2rem" target="_blank" rel="noopener" href="https://wa.me/556782159500?text=Ol%C3%A1%21%20Quero%20fazer%20uma%20cota%C3%A7%C3%A3o%20de%20plano%20de%20sa%C3%BAde."><i class="bi bi-whatsapp me-2"></i> Pedir cotação</a>
                             </div>
-                            <i class="bi bi-people slide-art" aria-hidden="true"></i>
+                            <img class="slide-photo" src="assets/banners/slide-3.jpg" alt="Pai sorrindo com o filho no colo" width="531" height="352" loading="lazy" />
                         </div>
                     </div>
                 </div>
@@ -551,9 +553,9 @@
                     </div>
                     <div class="logo-strip d-flex flex-wrap align-items-center gap-4 justify-content-md-end">
                         <img loading="lazy" alt="Hapvida"
-                            src="https://upload.wikimedia.org/wikipedia/commons/0/01/Hapvida_NDI_logo.png" />
+                            src="assets/logos/hapvida.png" />
                         <img loading="lazy" alt="Bradesco"
-                            src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Banco_Bradesco_logo.svg" />
+                            src="assets/logos/bradesco.svg" />
                         <!-- Select (ícone do app - pode trocar por logo oficial quando tiver o arquivo) -->
                         <img loading="lazy" alt="Select"
                             src="https://play-lh.googleusercontent.com/pJnKOt3yfXfPnU1Vh1l4InhJJajeTQhc7MBwLtgUej9ApbZjQ7j1AVdrbnPKnXmbYuwvECQ4TDKHwNg9yI3JQw=w240-h480" />
@@ -591,7 +593,7 @@
                 <div class="col-md-6 col-xl-3">
                     <div class="qm-card p-4 h-100">
                         <img loading="lazy" class="mb-3" alt="Hapvida"
-                            src="https://upload.wikimedia.org/wikipedia/commons/0/01/Hapvida_NDI_logo.png"
+                            src="assets/logos/hapvida.png"
                             style="max-height:30px;width:auto" />
                         <div class="small-muted mb-3">Opções com bom custo-benefício e ampla presença.</div>
                         <ul class="list-unstyled small mb-4">
@@ -618,7 +620,7 @@
                 <div class="col-md-6 col-xl-3">
                     <div class="qm-card p-4 h-100">
                         <img loading="lazy" class="mb-3" alt="Bradesco"
-                            src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Banco_Bradesco_logo.svg"
+                            src="assets/logos/bradesco.svg"
                             style="max-height:26px;width:auto" />
                         <div class="small-muted mb-3">Soluções para quem busca rede diferenciada e tradição.</div>
                         <ul class="list-unstyled small mb-4">
@@ -694,6 +696,73 @@
                         Valores, redes e coberturas variam por cidade/UF, faixa etária e modalidade (PF/PME).
                         Chame no WhatsApp e te envio uma cotação com comparativo.
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REDE CAMPO GRANDE -->
+    <section id="rede-campo-grande" class="section anchor-offset" style="background:var(--qm-soft)">
+        <div class="container">
+            <div class="row g-4 align-items-start">
+                <div class="col-lg-5">
+                    <span class="eyebrow">Rede Hapvida</span>
+                    <h2 class="display-6 fw-bold section-title">Rede em Campo Grande/MS</h2>
+                    <p class="small-muted">Unidades próprias da Hapvida na capital, segundo a lista oficial de unidades do site da operadora. A rede credenciada (hospitais, laboratórios e especialistas) varia conforme o plano escolhido e é informada na cotação.</p>
+                    <div class="row g-2 mb-3">
+                        <div class="col-4"><div class="qm-card p-3 text-center"><div class="fw-bold fs-4" style="color:var(--qm-primary-700)">86</div><div class="small-muted small">hospitais próprios no Brasil</div></div></div>
+                        <div class="col-4"><div class="qm-card p-3 text-center"><div class="fw-bold fs-4" style="color:var(--qm-primary-700)">365</div><div class="small-muted small">clínicas e centros médicos</div></div></div>
+                        <div class="col-4"><div class="qm-card p-3 text-center"><div class="fw-bold fs-4" style="color:var(--qm-primary-700)">15,8 mi</div><div class="small-muted small">beneficiários ativos</div></div></div>
+                    </div>
+                    <div class="d-flex flex-column flex-sm-row gap-2">
+                        <a class="btn btn-qm" target="_blank" rel="noopener" href="https://wa.me/556782159500?text=Ol%C3%A1!%20Quero%20saber%20a%20rede%20credenciada%20Hapvida%20em%20Campo%20Grande."><i class="bi bi-whatsapp me-2"></i> Rede completa no WhatsApp</a>
+                        <a class="btn btn-qm-outline" target="_blank" rel="noopener" href="https://www2.hapvida.com.br/unidades">Ver unidades no site oficial</a>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="qm-card p-3 h-100 d-flex gap-3 align-items-start">
+                        <div class="feature-icon"><i class="bi bi-hospital fs-4"></i></div>
+                        <div>
+                            <span class="plan-badge mb-1">Clínica</span>
+                            <div class="fw-semibold">Clínica Jardim dos Estados</div>
+                            <div class="small-muted small"><i class="bi bi-geo-alt me-1"></i>Rua Antônio Maria Coelho, 2926 – Jardim dos Estados, Campo Grande/MS</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="qm-card p-3 h-100 d-flex gap-3 align-items-start">
+                        <div class="feature-icon"><i class="bi bi-activity fs-4"></i></div>
+                        <div>
+                            <span class="plan-badge mb-1">Diagnóstico</span>
+                            <div class="fw-semibold">Hapvida Diagnóstico Campo Grande</div>
+                            <div class="small-muted small"><i class="bi bi-geo-alt me-1"></i>Rua Dom Aquino, 2274 – Centro, Campo Grande/MS</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="qm-card p-3 h-100 d-flex gap-3 align-items-start">
+                        <div class="feature-icon"><i class="bi bi-activity fs-4"></i></div>
+                        <div>
+                            <span class="plan-badge mb-1">Diagnóstico</span>
+                            <div class="fw-semibold">Hapvida Diagnóstico Dom Aquino</div>
+                            <div class="small-muted small"><i class="bi bi-geo-alt me-1"></i>Rua Dom Aquino, 1682 – Amambai, Campo Grande/MS</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="qm-card p-3 h-100 d-flex gap-3 align-items-start">
+                        <div class="feature-icon"><i class="bi bi-activity fs-4"></i></div>
+                        <div>
+                            <span class="plan-badge mb-1">Diagnóstico</span>
+                            <div class="fw-semibold">Hapvida Diagnóstico Carandá Bosque</div>
+                            <div class="small-muted small"><i class="bi bi-geo-alt me-1"></i>Av. Mato Grosso, 5151, 1º andar – Carandá Bosque, Campo Grande/MS</div>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+                    <div class="small-muted small mt-3"><i class="bi bi-info-circle me-1"></i> Informações do site da Hapvida (consulta em 08/10/2026). Endereços e unidades podem mudar; confirme na cotação.</div>
                 </div>
             </div>
         </div>
