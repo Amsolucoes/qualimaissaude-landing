@@ -5,39 +5,41 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>QualiMais Saude | Corretora de Planos de Saúde</title>
+    <title>QualiMais Saúde | Corretora de Planos de Saúde</title>
 
     <!-- SEO básico -->
     <meta name="description"
-        content="A QualiMais Saude é uma corretora de planos de saúde. Cotação e atendimento rápido no WhatsApp. Trabalhamos com Hapvida, Bradesco, Select e Oeste Saúde." />
+        content="A QualiMais Saúde é uma corretora de planos de saúde. Cotação e atendimento rápido no WhatsApp. Trabalhamos com Hapvida, Bradesco, Select e Oeste Saúde." />
     <meta name="robots" content="index, follow" />
-    <meta name="author" content="QualiMais Saude" />
+    <meta name="author" content="QualiMais Saúde" />
     <link rel="canonical" href="https://www.qualimaissaude.com.br/" />
 
     <!-- Open Graph -->
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="QualiMais Saude | Corretora de Planos de Saúde" />
+    <meta property="og:title" content="QualiMais Saúde | Corretora de Planos de Saúde" />
     <meta property="og:description"
         content="Cotação e atendimento rápido no WhatsApp. Hapvida, Bradesco, Select e Oeste Saúde." />
     <meta property="og:url" content="https://www.qualimaissaude.com.br/" />
-    <!-- Dica: troque por uma imagem sua (1200x630) -->
-    <meta property="og:image" content="https://www.qualimaissaude.com.br/og-image.jpg" />
+    <meta property="og:image" content="https://www.qualimaissaude.com.br/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="QualiMais Saude | Corretora de Planos de Saúde" />
+    <meta name="twitter:title" content="QualiMais Saúde | Corretora de Planos de Saúde" />
     <meta name="twitter:description"
         content="Cotação e atendimento rápido no WhatsApp. Hapvida, Bradesco, Select e Oeste Saúde." />
-    <meta name="twitter:image" content="https://www.qualimaissaude.com.br/og-image.jpg" />
+    <meta name="twitter:image" content="https://www.qualimaissaude.com.br/og-image.png" />
 
     <!-- Favicon (SVG inline) -->
     <link rel="icon"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2302B3A9'/%3E%3Cstop offset='1' stop-color='%23007B6E'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Cpath d='M32 14c1.7 0 3 1.3 3 3v10h10c1.7 0 3 1.3 3 3s-1.3 3-3 3H35v10c0 1.7-1.3 3-3 3s-3-1.3-3-3V36H19c-1.7 0-3-1.3-3-3s1.3-3 3-3h10V17c0-1.7 1.3-3 3-3z' fill='white'/%3E%3C/svg%3E" />
     <meta name="theme-color" content="#02B3A9" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons (mantendo como você pediu) -->
@@ -46,6 +48,8 @@
     <style>
         :root {
             /* Identidade: azul (primário), laranja (destaque), vermelho (ênfase) */
+            --qm-primary: #0D6EFD;
+            --qm-primary-700: #0A58CA;
             --qm-blue: #0D6EFD;
             /* azul Bootstrap */
             --qm-blue-700: #0A58CA;
@@ -99,8 +103,42 @@
         }
 
         body {
+            font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
             color: var(--qm-ink);
             background: var(--qm-bg);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, .section-title { letter-spacing: -.025em; }
+
+        .btn-qm, .btn-qm-outline { font-weight: 600; transition: transform .15s ease, box-shadow .15s ease, background .15s ease; }
+        .btn-qm:hover { transform: translateY(-2px); box-shadow: 0 14px 24px rgba(13, 110, 253, .28); }
+        .qm-card { transition: transform .2s ease, box-shadow .2s ease; }
+        #planos .qm-card.h-100:hover { transform: translateY(-4px); box-shadow: 0 18px 38px rgba(11, 31, 30, .10); }
+        :focus-visible { outline: 3px solid rgba(13, 110, 253, .45); outline-offset: 2px; }
+
+        .eyebrow { display: inline-block; font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--qm-primary-700); margin-bottom: .6rem; }
+        .text-gradient { background: linear-gradient(90deg, var(--qm-blue) 0%, #6f42c1 60%, var(--qm-orange) 120%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .stat { text-align: center; padding: .5rem 1rem; }
+        .stat .num { font-size: 1.5rem; font-weight: 800; letter-spacing: -.03em; color: var(--qm-primary-700); line-height: 1.1; }
+        .stat .lbl { font-size: .85rem; color: var(--qm-muted); }
+
+        .accordion-item { border: 1px solid var(--qm-border) !important; border-radius: 1rem !important; overflow: hidden; margin-bottom: .75rem; }
+        .accordion-button { font-weight: 600; }
+        .accordion-button:not(.collapsed) { background: rgba(13, 110, 253, .06); color: var(--qm-blue-700); box-shadow: none; }
+
+        .cta-band { background: linear-gradient(135deg, #0A58CA 0%, #0D6EFD 55%, #3d8bfd 100%); color: #fff; border-radius: 1.5rem; position: relative; overflow: hidden; }
+        .cta-band::after { content: ""; position: absolute; right: -80px; top: -80px; width: 280px; height: 280px; border-radius: 50%; background: rgba(253, 126, 20, .22); filter: blur(30px); }
+        .cta-band .btn-light { font-weight: 700; border-radius: .9rem; padding: .8rem 1.4rem; color: var(--qm-blue-700); }
+
+        .site-footer { background: #0B1F1E; color: rgba(255, 255, 255, .72); padding: 3rem 0 2rem; }
+        .site-footer a { color: rgba(255, 255, 255, .85); text-decoration: none; }
+        .site-footer a:hover { color: #fff; text-decoration: underline; }
+        .site-footer h6 { color: #fff; font-weight: 700; }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            * { transition: none !important; }
         }
 
         .navbar {
@@ -258,10 +296,10 @@
   {
     "@context":"https://schema.org",
     "@type":"InsuranceAgency",
-    "name":"QualiMais Saude",
+    "name":"QualiMais Saúde",
     "description":"Corretora de planos de saúde. Atendimento e cotação pelo WhatsApp.",
     "telephone":"+55 67 8215-9500",
-    "url":"https://www.qualymaissaude.com.br/",
+    "url":"https://www.qualimaissaude.com.br/",
     "sameAs":[
       "https://wa.me/556782159500"
     ],
@@ -282,7 +320,7 @@
         <div class="container">
             <a class="navbar-brand fw-semibold d-flex align-items-center" href="#home">
                 <span class="brand-dot"></span>
-                QualiMais Saude
+                QualiMais Saúde
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navQm"
@@ -295,6 +333,7 @@
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#planos">Planos</a></li>
                     <li class="nav-item"><a class="nav-link" href="#quem-somos">Quem somos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">Dúvidas</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
                 </ul>
 
@@ -324,8 +363,7 @@
                     </div>
 
                     <h1 class="display-5 fw-bold section-title">
-                        Encontre o plano de saúde ideal com a <span style="color:var(--qm-primary-700)">QualiMais
-                            Saude</span>
+                        Encontre o plano de saúde ideal com a <span class="text-gradient">QualiMais Saúde</span>
                     </h1>
                     <p class="lead small-muted mt-3">
                         Cotação clara, comparativo de cobertura e suporte do início ao fim.
@@ -345,7 +383,14 @@
                     </div>
 
                     <div class="mt-4 small-muted">
-                        <i class="bi bi-telephone me-2"></i> +55 67 8215-9500
+                        <i class="bi bi-telephone me-2"></i> <a href="tel:+556782159500" class="text-reset text-decoration-none">+55 67 8215-9500</a>
+                        <span class="mx-2">•</span> Cotação sem compromisso
+                    </div>
+
+                    <div class="row g-0 mt-4 pt-3 border-top" style="max-width:480px">
+                        <div class="col-4 stat"><div class="num">4</div><div class="lbl">operadoras</div></div>
+                        <div class="col-4 stat"><div class="num text-nowrap">PF/PME</div><div class="lbl">perfis atendidos</div></div>
+                        <div class="col-4 stat"><div class="num">100%</div><div class="lbl">online</div></div>
                     </div>
                 </div>
 
@@ -433,6 +478,7 @@
         <div class="container">
             <div class="row align-items-end g-3 mb-4">
                 <div class="col-lg-7">
+                    <span class="eyebrow">Operadoras parceiras</span>
                     <h2 class="display-6 fw-bold section-title">Planos</h2>
                     <p class="small-muted mb-0">
                         Selecione a operadora para iniciar a cotação. Se quiser, fale direto no WhatsApp e a gente te
@@ -567,9 +613,10 @@
         <div class="container">
             <div class="row g-4 align-items-center">
                 <div class="col-lg-6">
+                    <span class="eyebrow">Sobre nós</span>
                     <h2 class="display-6 fw-bold section-title">Quem somos</h2>
                     <p class="small-muted">
-                        A <strong>QualiMais Saude</strong> é uma corretora de planos de saúde focada em atendimento
+                        A <strong>QualiMais Saúde</strong> é uma corretora de planos de saúde focada em atendimento
                         consultivo:
                         entender seu cenário e apresentar opções que façam sentido — sem complicação.
                     </p>
@@ -673,14 +720,74 @@
         </div>
     </section>
 
+    <!-- FAQ -->
+    <section id="faq" class="section anchor-offset" style="background:var(--qm-soft)">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <span class="eyebrow">Dúvidas frequentes</span>
+                    <h2 class="display-6 fw-bold section-title">Perguntas que todo mundo faz</h2>
+                    <p class="small-muted">Não achou sua resposta? Chame no WhatsApp e a gente explica sem complicação.</p>
+                    <a class="btn btn-qm" href="https://wa.me/556782159500?text=Ol%C3%A1%21%20Tenho%20uma%20d%C3%BAvida%20sobre%20planos%20de%20sa%C3%BAde." target="_blank" rel="noopener">
+                        <i class="bi bi-whatsapp me-2"></i> Tirar dúvida
+                    </a>
+                </div>
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAcc">
+                        <div class="accordion-item">
+                            <h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#f1" aria-expanded="true" aria-controls="f1">A cotação tem algum custo?</button></h3>
+                            <div id="f1" class="accordion-collapse collapse show" data-bs-parent="#faqAcc"><div class="accordion-body small-muted">Não. A cotação e a orientação são sem compromisso. Você compara as opções e só segue se fizer sentido.</div></div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f2" aria-expanded="false" aria-controls="f2">O que preciso para pedir uma cotação?</button></h3>
+                            <div id="f2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body small-muted">Basta informar cidade/UF, a idade de cada pessoa que será incluída e se o plano é individual/familiar (PF) ou empresarial (PME).</div></div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f3" aria-expanded="false" aria-controls="f3">Existe carência?</button></h3>
+                            <div id="f3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body small-muted">Depende da operadora, do produto e da modalidade. Na cotação informamos as carências aplicáveis a cada opção.</div></div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f4" aria-expanded="false" aria-controls="f4">Vocês atendem empresas (PME)?</button></h3>
+                            <div id="f4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body small-muted">Sim. Trabalhamos com opções para pessoa física e para pequenas e médias empresas, com apoio na documentação.</div></div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f5" aria-expanded="false" aria-controls="f5">Os valores do site são fixos?</button></h3>
+                            <div id="f5" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body small-muted">São valores de referência e podem mudar conforme região, faixa etária, modalidade e regras da operadora. Peça uma cotação para ver o valor atualizado.</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section pb-0">
+        <div class="container">
+            <div class="cta-band p-4 p-md-5">
+                <div class="row align-items-center g-3 position-relative" style="z-index:1">
+                    <div class="col-lg-8">
+                        <h2 class="fw-bold mb-2">Pronto para encontrar o plano ideal?</h2>
+                        <p class="mb-0 opacity-75">Fale agora com um corretor e receba um comparativo claro, sem compromisso.</p>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a class="btn btn-light" href="https://wa.me/556782159500?text=Ol%C3%A1%21%20Quero%20fazer%20uma%20cota%C3%A7%C3%A3o%20de%20plano%20de%20sa%C3%BAde." target="_blank" rel="noopener">
+                            <i class="bi bi-whatsapp me-2"></i> Cotar no WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CONTATO -->
     <section id="contato" class="section anchor-offset">
         <div class="container">
             <div class="row align-items-end g-3 mb-4">
                 <div class="col-lg-7">
+                    <span class="eyebrow">Fale conosco</span>
                     <h2 class="display-6 fw-bold section-title">Contato</h2>
                     <p class="small-muted mb-0">
-                        Quer cotar agora? Clique no WhatsApp. Se preferir, deixe seus dados e a gente retorna.
+                        Quer cotar agora? Clique no WhatsApp ou preencha o formulário: montamos sua mensagem e abrimos a conversa.
                     </p>
                 </div>
                 <div class="col-lg-5 text-lg-end">
@@ -697,48 +804,45 @@
                     <div class="qm-card p-4 p-md-5">
                         <h3 class="h5 fw-semibold mb-3">Envie uma mensagem</h3>
 
-                        <!-- Formulário (front-end). Troque para integração real (API, Formspree, etc.) -->
+                        <!-- Formulário: monta a mensagem e abre o WhatsApp -->
                         <form id="contactForm" novalidate>
                             <div class="row g-3">
                                 <div class="col-md-6">
-                                    <label class="form-label">Nome</label>
-                                    <input class="form-control form-control-lg" name="name" required
+                                    <label class="form-label" for="f-name">Nome</label>
+                                    <input id="f-name" autocomplete="name" class="form-control form-control-lg" name="name" required
                                         placeholder="Seu nome" />
                                     <div class="invalid-feedback">Informe seu nome.</div>
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label class="form-label">WhatsApp</label>
-                                    <input class="form-control form-control-lg" name="phone" required
+                                    <label class="form-label" for="f-phone">WhatsApp</label>
+                                    <input id="f-phone" type="tel" autocomplete="tel" class="form-control form-control-lg" name="phone" required
                                         placeholder="(67) 9xxxx-xxxx" />
                                     <div class="invalid-feedback">Informe um contato.</div>
                                 </div>
 
                                 <div class="col-12">
-                                    <label class="form-label">E-mail (opcional)</label>
-                                    <input class="form-control form-control-lg" name="email" type="email"
+                                    <label class="form-label" for="f-email">E-mail (opcional)</label>
+                                    <input id="f-email" autocomplete="email" class="form-control form-control-lg" name="email" type="email"
                                         placeholder="seuemail@exemplo.com" />
                                 </div>
 
                                 <div class="col-12">
-                                    <label class="form-label">Mensagem</label>
-                                    <textarea class="form-control form-control-lg" name="message" rows="4" required
+                                    <label class="form-label" for="f-msg">Mensagem</label>
+                                    <textarea id="f-msg" class="form-control form-control-lg" name="message" rows="4" required
                                         placeholder="Conte seu perfil: cidade/UF, idades, PF ou PME, preferências..."></textarea>
                                     <div class="invalid-feedback">Escreva sua mensagem.</div>
                                 </div>
 
                                 <div class="col-12 d-grid d-sm-flex gap-2">
                                     <button class="btn btn-qm" type="submit">
-                                        <i class="bi bi-send me-2"></i> Enviar
-                                    </button>
-                                    <button class="btn btn-qm-outline" type="button" id="sendToWhatsApp">
                                         <i class="bi bi-whatsapp me-2"></i> Enviar pelo WhatsApp
                                     </button>
                                 </div>
 
                                 <div class="col-12">
                                     <div id="formAlert" class="alert alert-success d-none mb-0" role="alert">
-                                        Mensagem pronta! Se preferir, clique em “Enviar pelo WhatsApp”.
+                                        Abrimos o WhatsApp com sua mensagem pronta. É só confirmar o envio por lá.
                                     </div>
                                 </div>
                             </div>
@@ -790,11 +894,42 @@
                 </div>
             </div>
 
-            <div class="text-center small-muted mt-4">
-                © <span id="year"></span> QualiMais Saude — Todos os direitos reservados.
-            </div>
         </div>
     </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-5">
+                    <div class="d-flex align-items-center mb-2 text-white fw-bold"><span class="brand-dot"></span> QualiMais Saúde</div>
+                    <p class="small mb-0">Corretora de planos de saúde com atendimento consultivo, cotação clara e suporte do início ao fim.</p>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <h6>Navegação</h6>
+                    <ul class="list-unstyled small mb-0">
+                        <li><a href="#planos">Planos</a></li>
+                        <li><a href="#quem-somos">Quem somos</a></li>
+                        <li><a href="#faq">Dúvidas</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-4">
+                    <h6>Contato</h6>
+                    <ul class="list-unstyled small mb-0">
+                        <li><a href="https://wa.me/556782159500" target="_blank" rel="noopener"><i class="bi bi-whatsapp me-2"></i>WhatsApp</a></li>
+                        <li><a href="tel:+556782159500"><i class="bi bi-telephone me-2"></i>+55 67 8215-9500</a></li>
+                        <li><i class="bi bi-geo-alt me-2"></i>Atendimento online (Brasil)</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary-subtle opacity-25 my-4">
+            <div class="small opacity-75">
+                © <span id="year"></span> QualiMais Saúde — Todos os direitos reservados.
+                Valores, redes, carências e coberturas dependem da operadora, região e modalidade e podem ser alterados sem aviso.
+                As marcas das operadoras pertencem aos seus respectivos titulares.
+            </div>
+        </div>
+    </footer>
 
     <!-- WhatsApp floating button -->
     <a class="wa-float"
@@ -813,7 +948,6 @@
         // Form helper
         const form = document.getElementById("contactForm");
         const alertBox = document.getElementById("formAlert");
-        const waBtn = document.getElementById("sendToWhatsApp");
 
         function buildWhatsAppText() {
             const fd = new FormData(form);
@@ -863,15 +997,8 @@
 
             if (!ok) return;
 
-            // Aqui você integraria com backend/email. Por enquanto só mostra alerta e sugere WhatsApp
             alertBox.classList.remove("d-none");
-        });
-
-        waBtn.addEventListener("click", () => {
-            // se tiver inválido, tenta validar antes
-            form.dispatchEvent(new Event("submit", { cancelable: true }));
-            const invalid = form.querySelector(".is-invalid");
-            if (!invalid) openWhatsApp();
+            openWhatsApp();
         });
 
         // Fecha menu mobile ao clicar em link
@@ -886,7 +1013,7 @@
         });
 
         // Active link conforme rolagem
-        const sections = ["home", "planos", "quem-somos", "contato"].map(id => document.getElementById(id));
+        const sections = ["home", "planos", "quem-somos", "faq", "contato"].map(id => document.getElementById(id));
         const navLinks = Array.from(document.querySelectorAll(".navbar .nav-link"));
 
         const obs = new IntersectionObserver((entries) => {
