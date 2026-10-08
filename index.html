@@ -131,8 +131,28 @@
         .cta-band::after { content: ""; position: absolute; right: -80px; top: -80px; width: 280px; height: 280px; border-radius: 50%; background: rgba(253, 126, 20, .22); filter: blur(30px); }
         .cta-band .btn-light { font-weight: 700; border-radius: .9rem; padding: .8rem 1.4rem; color: var(--qm-blue-700); }
 
-        .hap-banner { background: linear-gradient(120deg, #052c65 0%, #0A58CA 55%, #0D6EFD 100%); color: #fff; border-radius: 1.5rem; position: relative; overflow: hidden; }
-        .hap-banner::before { content: ""; position: absolute; left: -60px; bottom: -90px; width: 300px; height: 300px; border-radius: 50%; background: rgba(253, 126, 20, .25); filter: blur(30px); }
+        .slider-wrap { padding-top: 5.5rem; }
+        .slide { position: relative; overflow: hidden; border-radius: 1.5rem; color: #fff; min-height: 420px; display: flex; align-items: center;
+            background-size: cover; background-position: center; }
+        /* Para usar fotos: salve assets/banners/slide-1.jpg, slide-2.jpg e slide-3.jpg; sem elas aparece só o degradê */
+        .slide-1 { background-image: linear-gradient(110deg, rgba(5,44,101,.94) 30%, rgba(13,110,253,.55)), url("assets/banners/slide-1.jpg"), linear-gradient(120deg, #052c65, #0D6EFD); }
+        .slide-2 { background-image: linear-gradient(110deg, rgba(10,88,202,.94) 30%, rgba(61,139,253,.55)), url("assets/banners/slide-2.jpg"), linear-gradient(120deg, #0A58CA, #3d8bfd); }
+        .slide-3 { background-image: linear-gradient(110deg, rgba(7,30,70,.94) 30%, rgba(253,126,20,.55)), url("assets/banners/slide-3.jpg"), linear-gradient(120deg, #071e46, #fd7e14); }
+        .slide-body { position: relative; z-index: 2; padding: 3rem 4.5rem 4rem 3.5rem; max-width: 720px; }
+        .slide-body h2 { font-size: clamp(1.6rem, 3.2vw, 2.4rem); letter-spacing: -.03em; line-height: 1.15; }
+        .slide-art { position: absolute; right: 4rem; top: 50%; transform: translateY(-50%); font-size: 13rem; opacity: .14; z-index: 1; }
+        .slide-stat { background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.25); border-radius: 1rem; padding: .8rem; text-align: center; backdrop-filter: blur(4px); height: 100%; }
+        .slide-stat b { display: block; font-size: 1.6rem; letter-spacing: -.03em; }
+        .slide-stat span { font-size: .75rem; opacity: .85; line-height: 1.2; display: block; }
+        .chip { background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.3); border-radius: 999px; padding: .4rem .8rem; font-size: .9rem; }
+        #heroCarousel .carousel-control-prev, #heroCarousel .carousel-control-next { width: 4rem; }
+        #heroCarousel .carousel-indicators { margin-bottom: 1rem; }
+        @media (max-width: 767px) {
+            .slide-body { padding: 2rem 1.25rem 3.5rem; }
+            .slide-art { font-size: 8rem; right: .5rem; top: 1.5rem; transform: none; }
+            .slide { min-height: 0; }
+            #heroCarousel .carousel-control-prev, #heroCarousel .carousel-control-next { display: none; }
+        }
 
         .site-footer { background: #0B1F1E; color: rgba(255, 255, 255, .72); padding: 3rem 0 2rem; }
         .site-footer a { color: rgba(255, 255, 255, .85); text-decoration: none; }
@@ -161,7 +181,7 @@
         }
 
         .hero {
-            padding-top: 5.5rem;
+            padding-top: 2.5rem;
             padding-bottom: 3.5rem;
             position: relative;
             overflow: hidden;
@@ -354,6 +374,75 @@
         </div>
     </nav>
 
+    <!-- CARROSSEL (abaixo do topo) -->
+    <section class="slider-wrap">
+        <div class="container">
+            <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="6000" aria-roledescription="carrossel" aria-label="Destaques do plano Hapvida">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active">
+                        <div class="slide slide-1">
+                            <div class="slide-body">
+                                <span class="badge text-bg-warning mb-3">Condição especial • Campo Grande/MS</span>
+                                <h2 class="fw-bold">Hapvida com <span class="text-warning">15% de desconto</span> nas 3 primeiras mensalidades*</h2>
+                                <p class="opacity-75 mb-4">Plano de saúde com plano odontológico. Veja os valores por faixa etária e peça sua cotação.</p>
+                                <div class="d-flex flex-column flex-sm-row gap-2">
+                                    <button type="button" class="btn btn-light fw-bold" data-bs-toggle="modal" data-bs-target="#hapvidaPricesModal" style="border-radius:.9rem;padding:.8rem 1.2rem"><i class="bi bi-table me-2"></i> Ver tabela de preços</button>
+                                    <a class="btn btn-outline-light fw-semibold" style="border-radius:.9rem;padding:.8rem 1.2rem" target="_blank" rel="noopener" href="https://wa.me/556782159500?text=Ol%C3%A1!%20Quero%20cotar%20Hapvida%20(Campo%20Grande).%20Pode%20me%20ajudar%3F"><i class="bi bi-whatsapp me-2"></i> Cotar Hapvida</a>
+                                </div>
+                                <div class="small opacity-50 mt-3">*Sujeito a elegibilidade, região e regras da operadora.</div>
+                            </div>
+                            <i class="bi bi-heart-pulse slide-art" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                        <div class="slide slide-2">
+                            <div class="slide-body">
+                                <span class="badge text-bg-light text-primary mb-3">Rede Hapvida</span>
+                                <h2 class="fw-bold">Uma das maiores redes próprias do Brasil</h2>
+                                <p class="opacity-75 mb-3">Hospitais, clínicas e unidades de diagnóstico da própria operadora, além da rede credenciada. Na cotação, mostramos a rede disponível em <strong>Campo Grande/MS</strong> para o plano escolhido.</p>
+                                <div class="row g-2 mb-3" style="max-width:520px">
+                                    <div class="col-4"><div class="slide-stat"><b>86</b><span>hospitais próprios</span></div></div>
+                                    <div class="col-4"><div class="slide-stat"><b>365</b><span>clínicas e centros médicos</span></div></div>
+                                    <div class="col-4"><div class="slide-stat"><b>8,6 mi</b><span>de beneficiários</span></div></div>
+                                </div>
+                                <div class="small opacity-50 mb-3">Números nacionais divulgados pela Hapvida (2026). A rede varia por cidade e por plano.</div>
+                                <a class="btn btn-light fw-bold" style="border-radius:.9rem;padding:.8rem 1.2rem" target="_blank" rel="noopener" href="https://wa.me/556782159500?text=Ol%C3%A1!%20Quero%20saber%20a%20rede%20Hapvida%20em%20Campo%20Grande."><i class="bi bi-whatsapp me-2"></i> Ver rede em Campo Grande</a>
+                            </div>
+                            <i class="bi bi-hospital slide-art" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="carousel-item">
+                        <div class="slide slide-3">
+                            <div class="slide-body">
+                                <span class="badge text-bg-warning mb-3">Atendimento completo</span>
+                                <h2 class="fw-bold">Consultas, exames, urgência e odontologia em um só plano</h2>
+                                <p class="opacity-75 mb-4">Escolha entre planos individuais, familiares e empresariais (PME). A QualiMais Saúde compara as opções, explica carências e acompanha você na contratação.</p>
+                                <div class="d-flex flex-wrap gap-2 mb-4">
+                                    <span class="chip"><i class="bi bi-calendar2-check me-1"></i> Consultas</span>
+                                    <span class="chip"><i class="bi bi-activity me-1"></i> Exames</span>
+                                    <span class="chip"><i class="bi bi-hospital me-1"></i> Urgência e emergência</span>
+                                    <span class="chip"><i class="bi bi-emoji-smile me-1"></i> Odontológico</span>
+                                </div>
+                                <a class="btn btn-light fw-bold" style="border-radius:.9rem;padding:.8rem 1.2rem" target="_blank" rel="noopener" href="https://wa.me/556782159500?text=Ol%C3%A1%21%20Quero%20fazer%20uma%20cota%C3%A7%C3%A3o%20de%20plano%20de%20sa%C3%BAde."><i class="bi bi-whatsapp me-2"></i> Pedir cotação</a>
+                            </div>
+                            <i class="bi bi-people slide-art" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Anterior</span></button>
+                <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Próximo</span></button>
+            </div>
+        </div>
+    </section>
+
     <!-- HERO -->
     <header id="home" class="hero anchor-offset">
         <div class="container position-relative">
@@ -475,31 +564,6 @@
             </div>
         </div>
     </header>
-
-    <!-- BANNER HAPVIDA -->
-    <section class="pt-2 pb-4">
-        <div class="container">
-            <div class="hap-banner p-4 p-md-5">
-                <div class="row align-items-center g-4 position-relative" style="z-index:1">
-                    <div class="col-lg-8">
-                        <span class="badge text-bg-warning mb-3">Condição especial</span>
-                        <h2 class="fw-bold mb-2">Hapvida em Campo Grande com <span class="text-warning">15% de desconto</span> nas 3 primeiras mensalidades*</h2>
-                        <p class="mb-0 opacity-75">Plano de saúde com plano odontológico. Veja a tabela de preços por faixa etária e peça sua cotação.</p>
-                    </div>
-                    <div class="col-lg-4 d-grid gap-2">
-                        <button type="button" class="btn btn-light fw-bold py-3" data-bs-toggle="modal" data-bs-target="#hapvidaPricesModal" style="border-radius:.9rem">
-                            <i class="bi bi-table me-2"></i> Ver tabela de preços
-                        </button>
-                        <a class="btn btn-outline-light fw-semibold py-3" style="border-radius:.9rem" target="_blank" rel="noopener"
-                            href="https://wa.me/556782159500?text=Ol%C3%A1!%20Quero%20cotar%20Hapvida%20(Campo%20Grande).%20Pode%20me%20ajudar%3F">
-                            <i class="bi bi-whatsapp me-2"></i> Cotar Hapvida
-                        </a>
-                    </div>
-                </div>
-                <div class="small opacity-50 mt-3 position-relative" style="z-index:1">*Condições sujeitas a elegibilidade, região e regras da operadora.</div>
-            </div>
-        </div>
-    </section>
 
     <!-- PLANOS -->
     <section id="planos" class="section anchor-offset">
