@@ -42,6 +42,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) com Consent Mode: cookies de anúncio só após o visitante aceitar -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-989814262"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('consent', 'default', {
+            ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied'
+        });
+        try { if (localStorage.getItem('qm_consent') === 'granted') {
+            gtag('consent', 'update', { ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted', analytics_storage: 'granted' });
+        } } catch (e) { }
+        gtag('js', new Date());
+        gtag('config', 'AW-989814262');
+    </script>
+
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons (mantendo como você pediu) -->
@@ -157,6 +172,10 @@
             .slide-body { max-width: 100%; padding: 0 1.25rem 3.5rem; margin-top: -1rem; }
             #heroCarousel .carousel-control-prev, #heroCarousel .carousel-control-next { display: none; }
         }
+
+        .cookie-bar { position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 1060; max-width: 720px; margin: 0 auto;
+            background: #fff; border: 1px solid var(--qm-border); border-radius: 1rem; box-shadow: 0 18px 40px rgba(11,31,30,.22); padding: 1rem 1.25rem; }
+        .cookie-bar[hidden] { display: none; }
 
         .site-footer { background: #0B1F1E; color: rgba(255, 255, 255, .72); padding: 3rem 0 2rem; }
         .site-footer a { color: rgba(255, 255, 255, .85); text-decoration: none; }
@@ -1141,6 +1160,7 @@
                         <li><a href="#quem-somos">Quem somos</a></li>
                         <li><a href="#faq">Dúvidas</a></li>
                         <li><a href="#contato">Contato</a></li>
+                        <li><a href="politica-de-privacidade.html">Política de privacidade</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-lg-4">
@@ -1177,6 +1197,36 @@
 
         // Envio do formulário por e-mail (FormSubmit) para a corretora
         const FORM_ENDPOINT = "https://formsubmit.co/ajax/biancaborgescarneiro@gmail.com";
+
+        // Conversões do Google Ads. Preencha com "AW-989814262/rótulo" de cada ação de conversão.
+        const CONVERSIONS = { whatsapp: "", form: "" };
+        function trackConversion(key) {
+            try {
+                gtag("event", key === "whatsapp" ? "whatsapp_click" : "form_submit");
+                if (CONVERSIONS[key]) gtag("event", "conversion", { send_to: CONVERSIONS[key] });
+            } catch (e) { }
+        }
+        document.addEventListener("click", (e) => {
+            const a = e.target.closest && e.target.closest('a[href*="wa.me"]');
+            if (a) trackConversion("whatsapp");
+        });
+
+        // Aviso de cookies (LGPD)
+        document.addEventListener("DOMContentLoaded", function () {
+            const bar = document.getElementById("cookieBar");
+            let saved = null;
+            try { saved = localStorage.getItem("qm_consent"); } catch (e) { }
+            if (!saved) bar.hidden = false;
+            function choose(value) {
+                try { localStorage.setItem("qm_consent", value); } catch (e) { }
+                if (value === "granted") {
+                    gtag("consent", "update", { ad_storage: "granted", ad_user_data: "granted", ad_personalization: "granted", analytics_storage: "granted" });
+                }
+                bar.hidden = true;
+            }
+            document.getElementById("cookieAccept").addEventListener("click", () => choose("granted"));
+            document.getElementById("cookieDeny").addEventListener("click", () => choose("denied"));
+        });
 
         // Form helper
         const form = document.getElementById("contactForm");
@@ -1255,6 +1305,7 @@
                 .then(r => r.json().then(d => ({ ok: r.ok && String(d.success) !== "false", d })))
                 .then(({ ok }) => {
                     if (!ok) throw new Error("falha no envio");
+                    trackConversion("form");
                     alertBox.className = "alert alert-success mb-0";
                     alertBox.textContent = "Mensagem enviada! Em breve um corretor entrará em contato pelo WhatsApp informado.";
                     form.reset();
@@ -1431,6 +1482,17 @@
                         data-bs-dismiss="modal">Fechar</button>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="cookie-bar" id="cookieBar" role="dialog" aria-label="Aviso de cookies" hidden>
+        <div class="small mb-3">
+            Usamos cookies para medir o desempenho dos nossos anúncios e melhorar o site. Você pode aceitar ou recusar.
+            Veja a <a href="politica-de-privacidade.html">Política de privacidade</a>.
+        </div>
+        <div class="d-flex gap-2 justify-content-end">
+            <button type="button" class="btn btn-qm-outline btn-sm" id="cookieDeny">Recusar</button>
+            <button type="button" class="btn btn-qm btn-sm" id="cookieAccept">Aceitar</button>
         </div>
     </div>
 
