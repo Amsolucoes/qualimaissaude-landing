@@ -32,10 +32,12 @@
         content="Cotação gratuita de plano de saúde em Campo Grande/MS. Hapvida, Bradesco, Select e Oeste Saúde." />
     <meta name="twitter:image" content="https://qualimaissaude.com.br/og-image.png" />
 
-    <!-- Favicon (SVG inline) -->
-    <link rel="icon"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2302B3A9'/%3E%3Cstop offset='1' stop-color='%23007B6E'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Cpath d='M32 14c1.7 0 3 1.3 3 3v10h10c1.7 0 3 1.3 3 3s-1.3 3-3 3H35v10c0 1.7-1.3 3-3 3s-3-1.3-3-3V36H19c-1.7 0-3-1.3-3-3s1.3-3 3-3h10V17c0-1.7 1.3-3 3-3z' fill='white'/%3E%3C/svg%3E" />
-    <meta name="theme-color" content="#02B3A9" />
+    <!-- Favicon / ícones -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/brand/favicon-48.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/brand/icon-192.png" />
+    <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png" />
+    <meta name="theme-color" content="#202A5B" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -171,6 +173,8 @@
             background: rgba(255, 255, 255, .85) !important;
             border-bottom: 1px solid var(--qm-border);
         }
+
+        .brand-logo { height: 52px; width: auto; border-radius: 10px; display: block; }
 
         .brand-dot {
             width: 10px;
@@ -326,6 +330,7 @@
       "description": "Corretora de planos de saúde em Campo Grande/MS. Atendimento e cotação pelo WhatsApp.",
       "url": "https://qualimaissaude.com.br/",
       "image": "https://qualimaissaude.com.br/og-image.png",
+      "logo": "https://qualimaissaude.com.br/assets/brand/icon-512.png",
       "telephone": "+55 67 8215-9500",
       "sameAs": [
         "https://wa.me/556782159500"
@@ -403,9 +408,8 @@
     <!-- NAV -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-semibold d-flex align-items-center" href="#home">
-                <span class="brand-dot"></span>
-                QualiMais Saúde
+            <a class="navbar-brand d-flex align-items-center" href="#home" aria-label="QualiMais Saúde Corretora">
+                <img class="brand-logo" src="assets/brand/logo-qualimais-sm.png" width="172" height="52" alt="QualiMais Saúde Corretora" />
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navQm"
@@ -452,7 +456,7 @@
                             <div class="slide-body">
                                 <span class="badge text-bg-warning mb-3">Condição especial • Campo Grande/MS</span>
                                 <h2 class="fw-bold">Hapvida com <span class="text-warning">15% de desconto</span> nas 3 primeiras mensalidades*</h2>
-                                <p class="opacity-75 mb-4">Plano de saúde com plano odontológico. Veja os valores por faixa etária e peça sua cotação.</p>
+                                <p class="opacity-75 mb-4">Plano Alter Hapvida em Campo Grande, com opção de plano odontológico. Veja a tabela por faixa etária e peça sua cotação.</p>
                                 <div class="d-flex flex-column flex-sm-row gap-2">
                                     <button type="button" class="btn btn-light fw-bold" data-bs-toggle="modal" data-bs-target="#hapvidaPricesModal" style="border-radius:.9rem;padding:.8rem 1.2rem"><i class="bi bi-table me-2"></i> Ver tabela de preços</button>
                                     <a class="btn btn-outline-light fw-semibold" style="border-radius:.9rem;padding:.8rem 1.2rem" target="_blank" rel="noopener" href="https://wa.me/556782159500?text=Ol%C3%A1!%20Quero%20cotar%20Hapvida%20(Campo%20Grande).%20Pode%20me%20ajudar%3F"><i class="bi bi-whatsapp me-2"></i> Cotar Hapvida</a>
@@ -1127,7 +1131,7 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-5">
-                    <div class="d-flex align-items-center mb-2 text-white fw-bold"><span class="brand-dot"></span> QualiMais Saúde</div>
+                    <img class="brand-logo mb-3" src="assets/brand/logo-qualimais-sm.png" width="172" height="52" alt="QualiMais Saúde Corretora" loading="lazy" />
                     <p class="small mb-0">Corretora de planos de saúde com atendimento consultivo, cotação clara e suporte do início ao fim.</p>
                 </div>
                 <div class="col-6 col-lg-3">
@@ -1293,15 +1297,15 @@
 
     <div class="modal fade" id="hapvidaPricesModal" tabindex="-1" aria-labelledby="hapvidaPricesModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content" style="border-radius: 18px;">
                 <div class="modal-header">
                     <div>
                         <h5 class="modal-title fw-bold" id="hapvidaPricesModalLabel">
-                            Tabela de preços — Hapvida Campo Grande
+                            Tabela de preços — Alter Hapvida • Campo Grande/MS
                         </h5>
                         <div class="small text-muted">
-                            Plano de saúde com plano odontológico • <span class="badge text-bg-warning">15% nas 3
+                            Plano Pleno (ambulatorial + hospitalar com obstetrícia) • <span class="badge text-bg-warning">15% de desconto nas 3
                                 primeiras mensalidades*</span>
                         </div>
                     </div>
@@ -1309,76 +1313,111 @@
                 </div>
 
                 <div class="modal-body">
+                    <div class="small text-muted d-md-none mb-2"><i class="bi bi-arrow-left-right me-1"></i> Deslize a tabela para o lado para ver todos os valores.</div>
                     <div class="table-responsive">
-                        <table class="table table-striped table-hover align-middle">
-                            <thead class="table-light">
-                                <tr>
-                                    <th scope="col">Faixa etária</th>
-                                    <th scope="col" class="text-end">Sem desconto</th>
-                                    <th scope="col" class="text-end">
-                                        Com desconto
-                                        <span class="badge text-bg-danger ms-2">Promo</span>
-                                    </th>
+                        <table class="table table-striped table-hover align-middle mb-0" style="min-width:640px">
+                            <thead>
+                                <tr class="text-center">
+                                    <th rowspan="3" class="table-light align-middle text-start" scope="col">Faixa etária</th>
+                                    <th colspan="2" class="text-bg-dark" scope="colgroup">Coparticipação total</th>
+                                    <th colspan="2" class="text-bg-danger" scope="colgroup">Coparticipação parcial</th>
+                                </tr>
+                                <tr class="text-center small table-light">
+                                    <th scope="col">Enfermaria</th>
+                                    <th scope="col">Apartamento</th>
+                                    <th scope="col">Enfermaria</th>
+                                    <th scope="col">Apartamento</th>
+                                </tr>
+                                <tr class="text-center small text-muted table-light">
+                                    <th scope="col" class="fw-normal">ANS 499.015/24-3</th>
+                                    <th scope="col" class="fw-normal">ANS 499.016/24-1</th>
+                                    <th scope="col" class="fw-normal">ANS 499.015/24-3</th>
+                                    <th scope="col" class="fw-normal">ANS 499.016/24-1</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>0 a 18</td>
-                                    <td class="text-end">R$ 258,87</td>
-                                    <td class="text-end fw-semibold">R$ 220,04</td>
+                                    <td class="fw-semibold">0 a 18</td>
+                                    <td class="text-end">R$ 224,45</td>
+                                    <td class="text-end">R$ 285,64</td>
+                                    <td class="text-end text-danger">R$ 321,33</td>
+                                    <td class="text-end text-danger">R$ 411,82</td>
                                 </tr>
                                 <tr>
-                                    <td>19 a 23</td>
-                                    <td class="text-end">R$ 268,40</td>
-                                    <td class="text-end fw-semibold">R$ 228,14</td>
+                                    <td class="fw-semibold">19 a 23</td>
+                                    <td class="text-end">R$ 232,61</td>
+                                    <td class="text-end">R$ 296,25</td>
+                                    <td class="text-end text-danger">R$ 333,39</td>
+                                    <td class="text-end text-danger">R$ 427,49</td>
                                 </tr>
                                 <tr>
-                                    <td>24 a 28</td>
-                                    <td class="text-end">R$ 268,40</td>
-                                    <td class="text-end fw-semibold">R$ 228,14</td>
+                                    <td class="fw-semibold">24 a 28</td>
+                                    <td class="text-end">R$ 232,61</td>
+                                    <td class="text-end">R$ 296,25</td>
+                                    <td class="text-end text-danger">R$ 333,39</td>
+                                    <td class="text-end text-danger">R$ 427,49</td>
                                 </tr>
                                 <tr>
-                                    <td>29 a 33</td>
-                                    <td class="text-end">R$ 305,54</td>
-                                    <td class="text-end fw-semibold">R$ 259,71</td>
+                                    <td class="fw-semibold">29 a 33</td>
+                                    <td class="text-end">R$ 264,43</td>
+                                    <td class="text-end">R$ 337,60</td>
+                                    <td class="text-end text-danger">R$ 380,44</td>
+                                    <td class="text-end text-danger">R$ 488,66</td>
                                 </tr>
                                 <tr>
-                                    <td>34 a 38</td>
-                                    <td class="text-end">R$ 348,26</td>
-                                    <td class="text-end fw-semibold">R$ 296,02</td>
+                                    <td class="fw-semibold">34 a 38</td>
+                                    <td class="text-end">R$ 301,01</td>
+                                    <td class="text-end">R$ 385,19</td>
+                                    <td class="text-end text-danger">R$ 434,56</td>
+                                    <td class="text-end text-danger">R$ 559,01</td>
                                 </tr>
                                 <tr>
-                                    <td>39 a 43</td>
-                                    <td class="text-end">R$ 401,19</td>
-                                    <td class="text-end fw-semibold">R$ 341,01</td>
+                                    <td class="fw-semibold">39 a 43</td>
+                                    <td class="text-end">R$ 346,36</td>
+                                    <td class="text-end">R$ 444,11</td>
+                                    <td class="text-end text-danger">R$ 501,60</td>
+                                    <td class="text-end text-danger">R$ 646,16</td>
                                 </tr>
                                 <tr>
-                                    <td>44 a 48</td>
-                                    <td class="text-end">R$ 606,62</td>
-                                    <td class="text-end fw-semibold">R$ 515,63</td>
+                                    <td class="fw-semibold">44 a 48</td>
+                                    <td class="text-end">R$ 522,33</td>
+                                    <td class="text-end">R$ 672,88</td>
+                                    <td class="text-end text-danger">R$ 761,81</td>
+                                    <td class="text-end text-danger">R$ 984,44</td>
                                 </tr>
                                 <tr>
-                                    <td>49 a 53</td>
-                                    <td class="text-end">R$ 917,13</td>
-                                    <td class="text-end fw-semibold">R$ 779,56</td>
+                                    <td class="fw-semibold">49 a 53</td>
+                                    <td class="text-end">R$ 788,31</td>
+                                    <td class="text-end">R$ 1.018,65</td>
+                                    <td class="text-end text-danger">R$ 1.155,11</td>
+                                    <td class="text-end text-danger">R$ 1.495,74</td>
                                 </tr>
                                 <tr>
-                                    <td>54 a 58</td>
-                                    <td class="text-end">R$ 1.028,91</td>
-                                    <td class="text-end fw-semibold">R$ 874,57</td>
+                                    <td class="fw-semibold">54 a 58</td>
+                                    <td class="text-end">R$ 884,05</td>
+                                    <td class="text-end">R$ 1.143,11</td>
+                                    <td class="text-end text-danger">R$ 1.296,70</td>
+                                    <td class="text-end text-danger">R$ 1.679,79</td>
                                 </tr>
                                 <tr>
-                                    <td>+ de 59</td>
-                                    <td class="text-end">R$ 1.448,29</td>
-                                    <td class="text-end fw-semibold">R$ 1.231,05</td>
+                                    <td class="fw-semibold">+ de 59</td>
+                                    <td class="text-end">R$ 1.243,29</td>
+                                    <td class="text-end">R$ 1.610,14</td>
+                                    <td class="text-end text-danger">R$ 1.827,93</td>
+                                    <td class="text-end text-danger">R$ 2.370,38</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
 
+                    <div class="small mt-3">
+                        <div class="mb-1"><i class="bi bi-hospital me-1"></i> <strong>Segmentação:</strong> ambulatorial + hospitalar com obstetrícia • <strong>Abrangência:</strong> grupo de municípios</div>
+                        <div class="mb-1"><i class="bi bi-emoji-smile me-1"></i> <strong>Plano odontológico opcional:</strong> Odonto Premium (ANS 476.835/16-3), com taxa de adesão.</div>
+                    </div>
+
                     <div class="small text-muted mt-3">
-                        *Condições promocionais podem variar por elegibilidade, região e regras da operadora. Valores
-                        sujeitos a alteração.
+                        *Condição promocional sujeita a elegibilidade, região e regras da operadora. Valores sujeitos a alteração.
+                        Hapvida (ANS nº 36.825-3) • Alter Benefícios (ANS nº 42.025-5). Consulte a cotação atualizada com um corretor.
                     </div>
                 </div>
 
