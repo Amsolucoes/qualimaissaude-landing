@@ -1302,18 +1302,29 @@
                 headers: { "Content-Type": "application/json", "Accept": "application/json" },
                 body: JSON.stringify(payload)
             })
-                .then(r => r.json().then(d => ({ ok: r.ok && String(d.success) !== "false", d })))
-                .then(({ ok }) => {
-                    if (!ok) throw new Error("falha no envio");
+                .then(r => r.text().then(t => {
+                    let d; try { d = JSON.parse(t); } catch (e) { d = { raw: t.slice(0, 300) }; }
+                    return { ok: r.ok && String(d.success) !== "false", d, status: r.status };
+                }))
+                .then(({ ok, d, status }) => {
+                    if (!ok) { const err = new Error("falha no envio"); err.detail = "HTTP " + status + " " + JSON.stringify(d); throw err; }
                     trackConversion("form");
                     alertBox.className = "alert alert-success mb-0";
                     alertBox.textContent = "Mensagem enviada! Em breve um corretor entrará em contato pelo WhatsApp informado.";
                     form.reset();
                 })
-                .catch(() => {
+                .catch((err) => {
                     alertBox.className = "alert alert-warning mb-0";
                     alertBox.innerHTML = "Não foi possível enviar agora. Tente novamente ou <a href='#' id='waFallback' class='alert-link'>envie pelo WhatsApp</a>.";
                     document.getElementById("waFallback").addEventListener("click", (ev) => { ev.preventDefault(); openWhatsApp(); });
+                    // Diagnóstico: abra o site com ?debug=1 para ver o motivo técnico
+                    if (/[?&]debug=1/.test(location.search)) {
+                        const pre = document.createElement("pre");
+                        pre.className = "small mt-2 mb-0";
+                        pre.style.whiteSpace = "pre-wrap";
+                        pre.textContent = "debug: " + ((err && (err.detail || err.message)) || String(err));
+                        alertBox.appendChild(pre);
+                    }
                 })
                 .finally(() => { btn.disabled = false; btn.innerHTML = original; });
         });
